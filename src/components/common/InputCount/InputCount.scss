@@ -1,0 +1,97 @@
+.f-count {
+  width: 100%;
+  display: flex;
+  .count {
+    &--label {
+      line-height: 1.2;
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: 1.2;
+      float: left;
+      width: 100%;
+      margin-right: -110px;
+      & small {
+        font-size: 14px;
+        font-size: 0.875rem;
+        display: block;
+        opacity: 0.6;
+      }
+    }
+    &--number {
+      &--input {
+        font-size: 20px;
+        font-size: 1.25rem;
+        display: table-cell;
+        text-align: center;
+        height: 36px;
+        width: 36px;
+        padding-top: 4px;
+        border: 1px solid #ccc;
+        vertical-align: middle;
+        border-radius: 0 !important;
+        box-shadow: none;
+      }
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button,
+      input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+
+      /* Firefox */
+      input[type="number"] {
+        -moz-appearance: textfield;
+      }
+      &--button {
+        font-size: 20px;
+        font-size: 1.25rem;
+        display: table-cell;
+        position: relative;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
+        width: 30px;
+        height: 36px;
+        vertical-align: middle;
+        outline: none;
+        &--icon {
+          display: block;
+          position: relative;
+          width: 13px;
+          height: 13px;
+          margin: 0 auto;
+          line-height: 13px;
+          overflow: hidden;
+          white-space: nowrap;
+          &::before {
+            content: "";
+            width: 13px;
+            height: 1px;
+            background: #333;
+            display: inline-block;
+            vertical-align: middle;
+            margin: auto;
+            position: absolute;
+            right: 0;
+            left: 0;
+            top: 0;
+            bottom: 0;
+          }
+          &.plus {
+            &::after {
+              content: "";
+              width: 1px;
+              height: 13px;
+              background: #333;
+              display: inline-block;
+              vertical-align: middle;
+              margin: 0 auto;
+              position: absolute;
+              right: 0;
+              left: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
