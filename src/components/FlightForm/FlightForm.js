@@ -5,11 +5,11 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import ExAutoComplete from '../common/ExAutocomplete';
+import ExAutocomplete from '../common/ExAutocomplete';
 
 import 'react-dates/initialize';
 import 'react-dates/lib/css/_datepicker.css';
-import InputCount from '../common/InputCount';
+import PassagerNumber from '../PassagerNumber';
 
 import './FlightForm.scss';
 
@@ -29,12 +29,12 @@ class FlightForm extends React.Component {
       <Container className="flight-wrapper">
         <Row>
           <Col className="fl-input">
-            <ExAutoComplete
+            <ExAutocomplete
               className="fl-input__autocomplete fl-input__autocomplete_from"
               options={autocompleteOptions}
               tflabel="from"
             />
-            <ExAutoComplete
+            <ExAutocomplete
               className="fl-input__autocomplete fl-input__autocomplete_to"
               options={autocompleteOptions}
               tflabel="to"
@@ -56,7 +56,7 @@ class FlightForm extends React.Component {
             />
           </Col>
           <Col>
-            <InputCount />
+            <PassagerNumber />
           </Col>
         </Row>
       </Container>
