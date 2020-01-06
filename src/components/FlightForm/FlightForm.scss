@@ -16,6 +16,31 @@
       left: calc(50% - 16px);
     }
   }
+  &--button {
+    font-weight: 300;
+    font-size: 20px;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    background-color: #f2f2f2;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 12px 20px;
+    border: 0;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    text-shadow: none;
+    box-sizing: border-box;
+    border-radius: 0;
+    background-color: #c00;
+    color: #fff;
+    width: 100%;
+    height: 56px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-top: 15px;
+  }
 }
 
 //.nav-tabs

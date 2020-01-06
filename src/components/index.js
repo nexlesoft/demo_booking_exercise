@@ -1,5 +1,7 @@
-import LoginForm from "./Login/LoginForm";
+import FlightForm from './FlightForm';
+import PassagerNumber from './PassagerNumber';
 
 export {
-  LoginForm
+  FlightForm,
+  PassagerNumber
 };

@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from "react";
 import PropTypes from "prop-types";
 import { DateRangePicker } from "react-dates";
@@ -24,7 +25,17 @@ class FlightForm extends React.Component {
   }
 
   render() {
-    const { autocompleteOptions } = this.props;
+    const {
+      autocompleteOptions,
+      onFlightFormChange,
+      flightFormState: {
+        adultAmount,
+        childrenAmount,
+        infantsAmount
+      },
+      openDeepLink
+    } = this.props;
+
     return (
       <Container className="flight-wrapper">
         <Row>
@@ -33,11 +44,13 @@ class FlightForm extends React.Component {
               className="fl-input__autocomplete fl-input__autocomplete_from"
               options={autocompleteOptions}
               tflabel="From"
+              onChange={(event, value) => onFlightFormChange("origin", value && value.brief)}
             />
             <ExAutocomplete
               className="fl-input__autocomplete fl-input__autocomplete_to"
               options={autocompleteOptions}
               tflabel="To"
+              onChange={(event, value) => onFlightFormChange("destination", value && value.brief)}
             />
           </Col>
           <Col>
@@ -47,6 +60,7 @@ class FlightForm extends React.Component {
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={({ startDate, endDate }) => {
+                onFlightFormChange('departureDate', startDate);
                 this.setState({ startDate, endDate });
               }}
               focusedInput={this.state.focusedInput}
@@ -56,7 +70,14 @@ class FlightForm extends React.Component {
             />
           </Col>
           <Col>
-            <PassagerNumber />
+            <PassagerNumber amounts={{ adultAmount, childrenAmount, infantsAmount }} onChange={(fieldName, value) => onFlightFormChange(fieldName, value)} />
+          </Col>
+        </Row>
+        <Row>
+          <Col />
+          <Col />
+          <Col>
+            <button type="button" className="flight-wrapper--button" onClick={() => openDeepLink()}>Search</button>
           </Col>
         </Row>
       </Container>
@@ -65,11 +86,17 @@ class FlightForm extends React.Component {
 }
 
 FlightForm.propTypes = {
-  autocompleteOptions: PropTypes.array
+  autocompleteOptions: PropTypes.array,
+  onFlightFormChange: PropTypes.func,
+  flightFormState: PropTypes.object,
+  openDeepLink: PropTypes.func
 };
 
 FlightForm.defaultProps = {
-  autocompleteOptions: []
+  autocompleteOptions: [],
+  onFlightFormChange: () => {},
+  flightFormState: {},
+  openDeepLink: () => {}
 };
 
 export default FlightForm;

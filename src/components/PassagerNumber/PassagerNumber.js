@@ -17,13 +17,8 @@ function PassagerNumber({ amounts, onChange, className, ...rest }) {
           className={cn("passager_number--trigger", dropdown && "down")}
           onClick={() => setDropdown(!dropdown)}
         >
-          <span className="passager_number--trigger--caption">{`${adultAmount ||
-            0} Adult, ${childrenAmount || 0} Children, ${infantsAmount ||
-            0} Infant`}</span>
-          <span className="passager_number--trigger--label">{`${adultAmount ||
-            0 + childrenAmount ||
-            0 + infantsAmount ||
-            0} Passengers`}</span>
+          <span className="passager_number--trigger--caption">{`${adultAmount} Adult, ${childrenAmount} Children, ${infantsAmount} Infant`}</span>
+          <span className="passager_number--trigger--label">{`${adultAmount + childrenAmount + infantsAmount} Passengers`}</span>
         </div>
         {dropdown && (
           <>

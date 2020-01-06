@@ -38,6 +38,7 @@ function InputCount({
           min={min}
           step={step}
           value={value}
+          onChange={e => onChange(e.target.value)}
         />
         <button
           type="button"

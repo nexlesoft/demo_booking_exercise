@@ -1,7 +1,7 @@
 import * as appActions from "./appActions";
-import * as loginActions from "./loginActions";
+import * as flightFormActions from "./flightFormActions";
 
 export {
   appActions,
-  loginActions
+  flightFormActions
 };

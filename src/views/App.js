@@ -3,10 +3,11 @@ import React from "react";
 import { IntlProvider } from "react-intl";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { HomeView, NotFoundView } from ".";
+import { NotFoundView } from ".";
 import { Loading } from "../components/common";
 import { messages_en, messages_vi } from "../translations";
 // import { pathKeys } from "../constants";
+import { HomePage } from "../containers";
 
 const messages = {
   en: messages_en,
@@ -25,7 +26,7 @@ class App extends React.PureComponent {
         <>
           <Loading loading={this.props.loading} />
           <Switch>
-            <Route exact path="/" component={HomeView} />
+            <Route exact path="/" component={HomePage} />
             <Route component={NotFoundView} />
           </Switch>
         </>

@@ -8,8 +8,10 @@
     background-color: transparent;
     font-size: 1em;
     font-family: $font-family-base;
+    z-index: 1;
   }
   .MuiInputBase-root {
+    z-index: 2;
     & input[type='text'] {
       font-size: 1em;
       font-family: $font-family-base;
