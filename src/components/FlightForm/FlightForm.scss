@@ -1,7 +1,8 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .flight-wrapper {
-  padding: 100px 0px;
+  padding: 20px 0;
+  //border: solid 1px #d8d8d8;
   margin: 0 auto;
   .fl-input {
     display: flex;
@@ -15,4 +16,59 @@
       left: calc(50% - 16px);
     }
   }
+}
+
+//.nav-tabs
+.nav-tabs {
+  border-bottom: 0;
+  width: 100%;
+  a {
+    width: calc(100% / 4 - 3px);
+    text-align: center;
+  }
+  .nav-link {
+    color: white;
+    background-color: rgba(51, 51, 51, 0.9);
+    border-radius: 0;
+    font-size: 14px;
+    padding: 12px 0;
+    margin-left: 3px;
+    border: 0;
+    &.active {
+      color: #c00;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+  }
+}
+
+//input
+.fl-input {
+  //background: #fff;
+  //border: 1px solid #cdcdcd;
+}
+
+.MuiInput-underline:before {
+  border-bottom: 0 !important;
+}
+label + .MuiInput-formControl {
+  //margin-top: 27px !important;
+}
+.MuiInputLabel-formControl {
+  //top: 10px !important;
+}
+.list-item-brief {
+  padding: 1px 3px;
+  font-size: 0.7em;
+}
+.MuiAutocomplete-root .ex-input {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  bottom: 18px;
+}
+.MuiAutocomplete-endAdornment {
+  display: none;
+}
+.MuiInput-underline:after {
+  border-bottom: 2px solid #333333;
 }

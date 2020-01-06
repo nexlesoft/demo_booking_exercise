@@ -1,6 +1,6 @@
 @import "variables.scss";
 @import "mixins.scss";
-@import '../../node_modules/react-redux-toastr/src/styles/index';
+@import "../../node_modules/react-redux-toastr/src/styles/index";
 
 /* Styles */
 
@@ -36,7 +36,7 @@ body {
   overflow: auto;
 
   > div {
-    width: 100%
+    width: 100%;
   }
 }
 
@@ -85,7 +85,7 @@ body {
 }
 
 .react-datepicker__input-container input {
-  border: 1px solid #DDDEDF;
+  border: 1px solid #dddedf;
   border-radius: 4px;
   padding: 2px 10px;
   color: #333333;
@@ -116,7 +116,7 @@ body {
   transform: translate3d(0, 0, 0);
   transition-property: transform, opacity;
   transition-duration: 300ms;
-  transition-timing-function: cubic-bezier(0.175, 0.665, 0.320, 1), linear;
+  transition-timing-function: cubic-bezier(0.175, 0.665, 0.32, 1), linear;
 }
 
 .transition-exit {
@@ -150,8 +150,18 @@ h2 {
   color: $vinBlue;
 }
 
-input.small { width: 46px; }
+input.small {
+  width: 46px;
+}
 
 input.large {
   width: 150px;
+}
+
+//search-box
+.search-box {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: solid 1px #d8d8d8;
+  //padding: 20px;
+  margin: 20px;
 }

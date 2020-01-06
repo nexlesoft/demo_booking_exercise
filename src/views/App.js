@@ -22,13 +22,13 @@ class App extends React.PureComponent {
         locale={language}
         messages={messages[language]}
       >
-        <div>
-          <Loading loading={this.props.loading}/>
+        <>
+          <Loading loading={this.props.loading} />
           <Switch>
-            <Route exact path="/" component={HomeView}/>
-            <Route component={NotFoundView}/>
+            <Route exact path="/" component={HomeView} />
+            <Route component={NotFoundView} />
           </Switch>
-        </div>
+        </>
       </IntlProvider>
     );
   }
