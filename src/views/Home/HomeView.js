@@ -35,7 +35,10 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
 
   return (
     <Tabs defaultActiveKey="flight" id="book-mask-tabs">
-      <Tab eventKey="flight" title="Flight">
+      <Tab
+        eventKey="flight"
+        title={<span className="icon-block flight-icon">Flight</span>}
+      >
         <FlightForm
           autocompleteOptions={AutocompleteOptions}
           onFlightFormChange={onFlightFormChange}

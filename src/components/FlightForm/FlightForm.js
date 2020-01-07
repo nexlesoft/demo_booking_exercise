@@ -7,6 +7,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import ExAutocomplete from "../common/ExAutocomplete";
+import Toggle from "../common/Toggle";
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -82,7 +83,9 @@ class FlightForm extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col />
+          <Col>
+            <Toggle />
+          </Col>
           <Col />
           <Col>
             <button
