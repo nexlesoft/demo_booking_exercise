@@ -19,26 +19,29 @@
   }
 
   &--button {
-    font-weight: 300;
-    font-size: 20px;
     line-height: 1.2;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 12px 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     border: 0;
     text-align: center;
     text-decoration: none;
     cursor: pointer;
-    text-shadow: none;
-    box-sizing: border-box;
     border-radius: 0;
     background-color: #c00;
     color: #fff;
+    font-size: 20px;
+    font-weight: $fontWeightRegular;
     width: 100%;
     height: 56px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    &:focus {
+      border: 0;
+      box-shadow: none;
+      outline: 0;
+    }
+    &:hover {
+      background-color: #ad0000;
+    }
   }
 
   .column1,
@@ -62,10 +65,12 @@
   }
   .center-flex {
     align-items: center;
+    margin-top: 15px;
   }
 }
 @media only screen and (max-width: 767px) {
   .flight-wrapper {
+    margin: 20px auto 0 auto;
     .row {
       flex-direction: column;
       .column1,
@@ -75,6 +80,9 @@
         width: 100%;
         margin-bottom: 15px;
       }
+    }
+    .center-flex {
+      margin-top: 0;
     }
   }
 }
@@ -142,6 +150,7 @@
 
 .MuiInputLabel-formControl {
   transform: translate(0, 10px) scale(1) !important;
+  margin-bottom: 0;
 }
 
 .MuiInputLabel-shrink {
@@ -318,15 +327,24 @@
 //.DateRangePickerInput
 .DateRangePickerInput__withBorder {
   border-radius: 0;
-  border: 1px solid $border;
-  height: 58px;
+}
+.DateInput {
+  width: 100%;
 }
 .DateRangePickerInput {
   display: inline-flex;
   justify-content: center;
   align-items: center;
   width: 100%;
+  border: 0;
 }
-.DateInput {
-  width: 100%;
+.DateInput_input {
+  border: 1px solid $border;
+  height: 58px;
+  font-size: 16px;
+  font-weight: $fontWeightRegular;
+  color: $DimGrey;
+}
+.DateInput_input__focused {
+  border: 1px solid $DimGrey;
 }
