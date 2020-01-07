@@ -202,3 +202,8 @@ input.large {
     margin: 0;
   }
 }
+@media (min-width: 768px) {
+  .container {
+    max-width: 1200px !important;
+  }
+}
