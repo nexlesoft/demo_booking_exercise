@@ -158,14 +158,6 @@ input.large {
   width: 150px;
 }
 
-//search-box
-.search-box {
-  background-color: rgba(255, 255, 255, 0.6);
-  border: solid 1px #d8d8d8;
-  //padding: 20px;
-  margin: 20px;
-}
-
 .visuallyhidden,
 .is-visuallyhidden {
   border: 0;
@@ -193,4 +185,19 @@ input.large {
   padding: 0 !important;
   position: absolute !important;
   width: 1px !important;
+}
+
+//search-box
+.search-box {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: solid 1px #d8d8d8;
+  margin: 20px auto;
+  max-width: 1200px;
+  //min-width: 768px;
+}
+@media only screen and (max-width: 767px) {
+  .search-box {
+    max-width: 767px;
+    min-width: 0;
+  }
 }

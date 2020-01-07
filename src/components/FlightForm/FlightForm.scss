@@ -1,9 +1,7 @@
 @import "../../styles/variables.scss";
 
 .flight-wrapper {
-  padding: 20px 0;
-  //border: solid 1px #d8d8d8;
-  margin: 0 auto;
+  margin: 20px auto;
 
   .fl-input {
     display: flex;
@@ -45,8 +43,44 @@
     text-overflow: ellipsis;
     margin-top: 15px;
   }
-}
 
+  .column1,
+  .column2,
+  .column3,
+  .column4 {
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+  .column1 {
+    width: 30%;
+  }
+  .column2 {
+    width: 45%;
+  }
+  .column3 {
+    width: 25%;
+  }
+  .column4 {
+    width: 75%;
+  }
+  .center-flex {
+    align-items: center;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .flight-wrapper {
+    .row {
+      flex-direction: column;
+      .column1,
+      .column2,
+      .column3,
+      .column4 {
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
 //.nav-tabs
 .nav-tabs {
   border-bottom: 0;
@@ -216,7 +250,42 @@
     z-index: 3;
   }
 }
-
+//List-Advanced
+.list-advanced {
+  ul {
+    list-style: none;
+    display: inline-flex;
+    margin-block-end: 0;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    padding-inline-start: 0;
+    margin-bottom: 0;
+    li {
+      font-size: 15px;
+      font-weight: $fontWeightRegular;
+      color: $color66;
+      margin-right: 20px;
+      &:after {
+        content: "";
+        margin-left: 5px;
+        display: inline-block;
+        vertical-align: middle;
+        width: 0;
+        height: 0;
+        border: 4px solid transparent;
+        border-left-color: #cc0000;
+        border-right: none;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 767px) {
+  .list-advanced {
+    ul {
+      flex-direction: column;
+    }
+  }
+}
 //DateRangePicker
 .CalendarDay__selected,
 .CalendarDay__selected:active,
@@ -242,4 +311,22 @@
   td {
     padding: 5px 10px;
   }
+}
+//.DateRangePickerInput
+.DateRangePickerInput__withBorder {
+  border-radius: 0;
+  border: 1px solid $border;
+  height: 58px;
+}
+.DateRangePickerInput {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.DateInput {
+  width: 100%;
+}
+//column{}
+.column-grid {
 }

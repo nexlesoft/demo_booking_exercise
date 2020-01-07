@@ -36,7 +36,7 @@ class FlightForm extends React.Component {
     return (
       <Container className="flight-wrapper">
         <Row>
-          <Col className="fl-input">
+          <div className="column1 fl-input">
             <ExAutocomplete
               className="fl-input__autocomplete fl-input__autocomplete_from"
               options={autocompleteOptions}
@@ -56,8 +56,8 @@ class FlightForm extends React.Component {
                 onFlightFormChange("destination", value && value.brief)
               }
             />
-          </Col>
-          <Col>
+          </div>
+          <div className="column2">
             <DateRangePicker
               startDateId="startDate"
               endDateId="endDate"
@@ -72,22 +72,27 @@ class FlightForm extends React.Component {
                 this.setState({ focusedInput });
               }}
             />
-          </Col>
-          <Col>
+          </div>
+          <div className="column3">
             <PassagerNumber
               amounts={{ adultAmount, childrenAmount, infantsAmount }}
               onChange={(fieldName, value) =>
                 onFlightFormChange(fieldName, value)
               }
             />
-          </Col>
+          </div>
         </Row>
-        <Row>
-          <Col>
-            <Toggle />
-          </Col>
-          <Col />
-          <Col>
+        <Row className="center-flex">
+          <div className="column4 list-advanced">
+            <ul>
+              <li>Advanced search</li>
+              <li>Arrivals and departures</li>
+              <li>Inspire me</li>
+              <li>Miles & More</li>
+              <li>Check-in</li>
+            </ul>
+          </div>
+          <div className="column3">
             <button
               type="button"
               className="flight-wrapper--button"
@@ -95,7 +100,7 @@ class FlightForm extends React.Component {
             >
               Search
             </button>
-          </Col>
+          </div>
         </Row>
       </Container>
     );
