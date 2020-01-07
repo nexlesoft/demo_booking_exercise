@@ -1,7 +1,12 @@
+@import "../../styles/variables.scss";
+
 .passager_number {
+  background: white;
+  //border: 1px solid #CDCDCD;
   &--trigger {
     cursor: pointer;
     position: relative;
+
     &--caption {
       position: absolute;
       pointer-events: none;
@@ -22,7 +27,9 @@
       width: 100%;
       background: white;
       border: 1px solid #cdcdcd;
-      font-size: 18px;
+      color: $DimGrey;
+      font-weight: $fontWeightRegular;
+      font-size: 17px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -32,8 +39,9 @@
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      height: 56px;
+      height: 58px;
       padding: 23px 12px 6px;
+      margin-bottom: 0;
     }
     &::after {
       width: 0;
@@ -55,5 +63,23 @@
         border-top: none;
       }
     }
+  }
+  .drop-down {
+    position: absolute;
+    top: 58px;
+    left: 15px;
+    width: 300px;
+    z-index: 2;
+  }
+  .button-close {
+    height: 56px;
+    text-align: center;
+    color: $DimGrey;
+    font-size: 14px;
+    background: transparent;
+    box-shadow: none;
+    width: 100%;
+    border: 1px solid $border;
+    border-top: 0;
   }
 }
