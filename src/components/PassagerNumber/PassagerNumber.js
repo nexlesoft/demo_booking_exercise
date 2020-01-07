@@ -18,10 +18,12 @@ function PassagerNumber({ amounts, onChange, className, ...rest }) {
           onClick={() => setDropdown(!dropdown)}
         >
           <span className="passager_number--trigger--caption">{`${adultAmount} Adult, ${childrenAmount} Children, ${infantsAmount} Infant`}</span>
-          <span className="passager_number--trigger--label">{`${adultAmount + childrenAmount + infantsAmount} Passengers`}</span>
+          <span className="passager_number--trigger--label">{`${adultAmount +
+            childrenAmount +
+            infantsAmount} Passengers`}</span>
         </div>
         {dropdown && (
-          <>
+          <div className="drop-down">
             <InputCount
               id="adults"
               name="Adults"
@@ -49,10 +51,14 @@ function PassagerNumber({ amounts, onChange, className, ...rest }) {
               value={infantsAmount}
               onChange={value => onChange("infantsAmount", value)}
             />
-            <button type="button" onClick={() => setDropdown(false)}>
-              close
+            <button
+              className="button-close"
+              type="button"
+              onClick={() => setDropdown(false)}
+            >
+              Close
             </button>
-          </>
+          </div>
         )}
       </fieldset>
     </div>

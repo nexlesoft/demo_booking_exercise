@@ -23,6 +23,8 @@ $blackText: #434343 !default;
 $vinBlue: #5bb7db;
 $vinGreen: #60b044;
 $vinRed: #ff0000;
+$border: #cdcdcd;
+$colorF2: #f2f2f2;
 
 $bg: #f0f0f0 !default;
 
@@ -34,7 +36,7 @@ $darkblue: #009ade !default;
 $blueBg: #141b4d !default;
 $silver: #b6bcc1 !default;
 // Font system
-$font-family-base: "Muli", sans-serif !default;
+$font-family-base: "Roboto", sans-serif !default;
 $font-size-base: 14px !default;
 $font-size-13: 13px !default;
 $font-20: 20px !default;
@@ -47,11 +49,9 @@ $font-family-default: "FontAwesome";
 //Notification
 $colorFav: #2c91d0;
 
-$fontWeightExtraLight: 200;
+$fontWeightThin: 100;
 $fontWeightLight: 300;
 $fontWeightRegular: 400;
 $fontWeightMedium: 500;
-$fontWeightSemiBold: 600;
 $fontWeightBold: 700;
-$fontWeightExtraBold: 800;
 $fontWeightBlack: 900;
