@@ -1,40 +1,32 @@
-@import "../../../styles/variables.scss";
-
 .f-count {
   width: 100%;
   display: flex;
-  background: #fff;
-  padding: 10px;
-  border: 1px solid $border;
-  border-top: 0;
   .count {
     &--label {
       line-height: 1.2;
-      font-size: 17px;
+      font-size: 20px;
+      font-size: 1.25rem;
+      line-height: 1.2;
       float: left;
       width: 100%;
-      color: $DimGrey;
-      font-weight: $fontWeightRegular;
-      margin-right: -100px;
-      margin-bottom: 0;
+      margin-right: -110px;
       & small {
-        font-size: 13px;
+        font-size: 14px;
+        font-size: 0.875rem;
         display: block;
         opacity: 0.6;
       }
     }
     &--number {
       &--input {
-        font-size: 17px;
+        font-size: 20px;
+        font-size: 1.25rem;
         display: table-cell;
         text-align: center;
         height: 36px;
         width: 36px;
         padding-top: 4px;
-        border-top: 1px solid $border;
-        border-bottom: 1px solid $border;
-        border-left: 0;
-        border-right: 0;
+        border: 1px solid #ccc;
         vertical-align: middle;
         border-radius: 0 !important;
         box-shadow: none;
@@ -51,11 +43,12 @@
         -moz-appearance: textfield;
       }
       &--button {
-        font-size: 17px;
+        font-size: 20px;
+        font-size: 1.25rem;
         display: table-cell;
         position: relative;
-        background-color: $colorF2;
-        border: 1px solid $border;
+        background-color: #f2f2f2;
+        border: 1px solid #ccc;
         width: 30px;
         height: 36px;
         vertical-align: middle;
@@ -73,7 +66,7 @@
             content: "";
             width: 13px;
             height: 1px;
-            background: $DimGrey;
+            background: #333;
             display: inline-block;
             vertical-align: middle;
             margin: auto;
@@ -88,7 +81,7 @@
               content: "";
               width: 1px;
               height: 13px;
-              background: $DimGrey;
+              background: #333;
               display: inline-block;
               vertical-align: middle;
               margin: 0 auto;

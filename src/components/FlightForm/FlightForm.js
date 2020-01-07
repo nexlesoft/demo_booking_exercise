@@ -15,6 +15,8 @@ import PassagerNumber from "../PassagerNumber";
 
 import "./FlightForm.scss";
 
+const flightIcon = require("../../images/flight.png");
+
 class FlightForm extends React.Component {
   constructor(props) {
     super(props);
@@ -39,85 +41,86 @@ class FlightForm extends React.Component {
 
     return (
       <Container className="flight-wrapper">
-        <Row>
-          <div className="column1 fl-input">
-            <ExAutocomplete
-              className="fl-input__autocomplete fl-input__autocomplete_from"
-              options={autocompleteOptions}
-              tflabel="From"
-              onChange={(event, value) =>
-                onFlightFormChange("origin", value && value.brief)
-              }
-            />
-            <div className="fight-icon">
-              <img src={require("../../images/flight.png")} alt="flight" />
+        <form onSubmit={() => openDeepLink()}>
+          <Row>
+            <div className="column1 fl-input">
+              <ExAutocomplete
+                className="fl-input__autocomplete fl-input__autocomplete_from"
+                options={autocompleteOptions}
+                tflabel="From"
+                onChange={(event, value) =>
+                  onFlightFormChange("origin", value && value.brief)
+                }
+                required
+              />
+              <div className="fight-icon">
+                <img src={flightIcon} alt="flight" />
+              </div>
+              <ExAutocomplete
+                className="fl-input__autocomplete fl-input__autocomplete_to"
+                options={autocompleteOptions}
+                tflabel="To"
+                onChange={(event, value) =>
+                  onFlightFormChange("destination", value && value.brief)
+                }
+                required
+              />
             </div>
-            <ExAutocomplete
-              className="fl-input__autocomplete fl-input__autocomplete_to"
-              options={autocompleteOptions}
-              tflabel="To"
-              onChange={(event, value) =>
-                onFlightFormChange("destination", value && value.brief)
-              }
-            />
-          </div>
-          <div className="column2 custom-datepicker">
-            <DateRangePicker
-              startDateId="startDate"
-              endDateId="endDate"
-              disabled={!this.state.isOutBound && "endDate"}
-              startDate={this.state.startDate}
-              endDate={this.state.endDate}
-              onDatesChange={({ startDate, endDate }) => {
-                onFlightFormChange("departureDate", startDate);
-                this.setState({ startDate, endDate });
-              }}
-              focusedInput={this.state.focusedInput}
-              onFocusChange={focusedInput => {
-                this.setState({ focusedInput });
-              }}
-              startDatePlaceholderText={startDateLabel}
-              endDatePlaceholderText="Return flight"
-            />
-            <Toggle
-              id="outboun"
-              checked={this.state.isOutBound}
-              onChange={() =>
-                this.setState(prevState => ({
-                  isOutBound: !prevState.isOutBound
-                }))
-              }
-            />
-          </div>
-          <div className="column3">
-            <PassagerNumber
-              amounts={{ adultAmount, childrenAmount, infantsAmount }}
-              onChange={(fieldName, value) =>
-                onFlightFormChange(fieldName, value)
-              }
-            />
-          </div>
-        </Row>
-        <Row className="center-flex">
-          <div className="column4 list-advanced">
-            <ul>
-              <li>Advanced search</li>
-              <li>Arrivals and departures</li>
-              <li>Inspire me</li>
-              <li>Miles & More</li>
-              <li>Check-in</li>
-            </ul>
-          </div>
-          <div className="column3">
-            <button
-              type="button"
-              className="flight-wrapper--button"
-              onClick={() => openDeepLink()}
-            >
-              Search
-            </button>
-          </div>
-        </Row>
+            <div className="column2">
+              <DateRangePicker
+                startDateId="startDate"
+                endDateId="endDate"
+                disabled={!this.state.isOutBound && "endDate"}
+                startDate={this.state.startDate}
+                endDate={this.state.endDate}
+                onDatesChange={({ startDate, endDate }) => {
+                  onFlightFormChange("departureDate", startDate);
+                  this.setState({ startDate, endDate });
+                }}
+                focusedInput={this.state.focusedInput}
+                onFocusChange={focusedInput => {
+                  this.setState({ focusedInput });
+                }}
+                startDatePlaceholderText={startDateLabel}
+                endDatePlaceholderText="Return flight"
+                required
+              />
+              <Toggle
+                id="outboun"
+                checked={this.state.isOutBound}
+                onChange={() =>
+                  this.setState(prevState => ({
+                    isOutBound: !prevState.isOutBound
+                  }))
+                }
+              />
+            </div>
+            <div className="column3">
+              <PassagerNumber
+                amounts={{ adultAmount, childrenAmount, infantsAmount }}
+                onChange={(fieldName, value) =>
+                  onFlightFormChange(fieldName, value)
+                }
+              />
+            </div>
+          </Row>
+          <Row className="center-flex">
+            <div className="column4 list-advanced">
+              <ul>
+                <li>Advanced search</li>
+                <li>Arrivals and departures</li>
+                <li>Inspire me</li>
+                <li>Miles & More</li>
+                <li>Check-in</li>
+              </ul>
+            </div>
+            <div className="column3">
+              <button type="submit" className="flight-wrapper--button">
+                Search
+              </button>
+            </div>
+          </Row>
+        </form>
       </Container>
     );
   }

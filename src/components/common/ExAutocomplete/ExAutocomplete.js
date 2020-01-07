@@ -1,15 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import cn from 'classnames';
+import React from "react";
+import PropTypes from "prop-types";
+import cn from "classnames";
 
 // Components
-import Autocomplete from '@material-ui/lab/Autocomplete';
-import TextField from '@material-ui/core/TextField';
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import TextField from "@material-ui/core/TextField";
 
-import './ExAutocomplete.scss';
+import "./ExAutocomplete.scss";
 
 function ExAutocomplete(props) {
-  const { tflabel, options } = props;
+  const { tflabel, required, options } = props;
   return (
     <Autocomplete
       {...props}
@@ -26,10 +26,10 @@ function ExAutocomplete(props) {
       )}
       renderInput={params => {
         const pickedItem = options.find(
-          option => option.value === params.inputProps.value,
+          option => option.value === params.inputProps.value
         );
         const valueWithAbbr = pickedItem && (
-          <div className={cn('ex-input')}>
+          <div className={cn("ex-input")}>
             <span className="list-item-value list-item-value__hide">
               {pickedItem && pickedItem.value}
             </span>
@@ -41,10 +41,14 @@ function ExAutocomplete(props) {
             </abbr>
           </div>
         );
-
         return (
           <>
-            <TextField {...params} label={tflabel} fullWidth />
+            <TextField
+              {...params}
+              label={tflabel}
+              fullWidth
+              required={required}
+            />
             {valueWithAbbr}
           </>
         );
@@ -55,10 +59,12 @@ function ExAutocomplete(props) {
 
 ExAutocomplete.propTypes = {
   tflabel: PropTypes.string,
+  required: PropTypes.bool
 };
 
 ExAutocomplete.defaultProps = {
-  tflabel: '',
+  tflabel: "",
+  required: false
 };
 
 export default ExAutocomplete;
