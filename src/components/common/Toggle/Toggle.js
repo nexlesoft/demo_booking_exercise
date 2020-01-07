@@ -7,20 +7,20 @@ import "./Toggle.scss";
 
 const Toggle = ({ type, children, disabled, className, ...rest }) => {
   const options = {
-    className: cn(`toggle`, className, {
+    className: cn(`wrapper-toggle`, className, {
       active: rest.active
     }),
     disabled,
     ...rest
   };
   return (
-    <label {...options}>
-      <input type="checkbox" />
-      <span className="slider round">
-        <span />
-        <span />
-      </span>
-    </label>
+    <div {...options}>
+      <input type="checkbox" name="aaa" id="aaa" />
+      <label className="wrapper-toggle--label" htmlFor="aaa">
+        <span className="wrapper-toggle--single" />
+        <span className="wrapper-toggle--return" />
+      </label>
+    </div>
   );
 };
 

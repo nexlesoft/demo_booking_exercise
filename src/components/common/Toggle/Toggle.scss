@@ -1,69 +1,121 @@
 @import "../../../styles/variables.scss";
 
 /* The switch - the box around the slider */
-.toggle {
-  display: block;
-  position: relative;
-  letter-spacing: -1ex;
-  text-indent: -9999px;
-  color: transparent;
-  text-decoration: none;
-  line-height: 1;
-  cursor: pointer;
-  width: 42px;
-  height: 28px;
-  border-radius: 14px;
-  overflow: hidden;
-  background-color: #fff;
-  will-change: transform;
-}
-
-/* Hide default HTML checkbox */
-.toggle input {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-  i:nth-child(1) {
-    color: white;
-    margin-left: 8px;
+.wrapper-toggle {
+  &--label {
+    display: block;
+    position: relative;
+    letter-spacing: -1ex;
+    text-indent: -9999px;
+    color: transparent;
+    text-decoration: none;
+    line-height: 1;
+    cursor: pointer;
+    width: 42px;
+    height: 28px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-color: #fff;
+    will-change: transform;
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 14px;
+      top: 0;
+      left: 0;
+      box-shadow: inset 0 0 0 1px #999;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: -50%;
+      background-color: #c00;
+      -ms-transform: translateX(0);
+      transform: translateX(0);
+      will-change: transform;
+      transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    }
   }
-  i:nth-child(2) {
-    color: blue;
-    margin-right: 7px;
+
+  &--single {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    left: -1px;
+    &::before {
+      background: url("../../../images/evo--sprite.png") no-repeat -365px -65px;
+      width: 24px;
+      height: 24px;
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      left: 0;
+      opacity: 0;
+    }
+    &::after {
+      background: url("../../../images/evo--sprite.png") no-repeat -365px -91px;
+      width: 24px;
+      height: 24px;
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      left: 0;
+    }
   }
-}
+  &--return {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    width: 50%;
+    height: 100%;
+    top: 0;
+    right: -1px;
+    &::before {
+      background: url("../../../images/evo--sprite.png") no-repeat -365px -143px;
+      width: 24px;
+      height: 24px;
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      right: 0;
+    }
+    &::after {
+      background: url("../../../images/evo--sprite.png") no-repeat -365px -195px;
+      width: 24px;
+      height: 24px;
+      content: "";
+      position: absolute;
+      top: 50%;
+      margin-top: -12px;
+      right: 0;
+      opacity: 0;
+    }
+  }
 
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 28px;
-  width: 28px;
-  left: 4px;
-  bottom: 2px;
-  background-color: blue;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
-}
+  /* Hide default HTML checkbox */
+  // input {
+  //   opacity: 0;
+  //   width: 0;
+  //   height: 0;
+  // }
 
-input:checked + .slider {
+  input[type=checkbox]:checked ~ label::after {
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }
+  // input[type=checkbox]:focus ~ label::after {
+  //   -ms-transform: translateX(100%);
+  //   transform: translateX(100%);
+  // }
 }
-
-input:focus + .slider {
-}
-
-input:checked + .slider:before {
-}
-

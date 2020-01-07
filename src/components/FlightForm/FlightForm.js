@@ -83,7 +83,9 @@ class FlightForm extends React.Component {
           </Col>
         </Row>
         <Row>
-          <Col />
+          <Col>
+            <Toggle />
+          </Col>
           <Col />
           <Col>
             <button

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from 'moment';
+import moment from "moment";
 // bootstrap components
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
@@ -25,17 +25,20 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
     const deepLink = DeepLink.replace("<flight_type>", flightType)
       .replace("<origin>", origin)
       .replace("<destination>", destination)
-      .replace("<departure_date>", moment(departureDate).format('YYYY-MM-DD'))
+      .replace("<departure_date>", moment(departureDate).format("YYYY-MM-DD"))
       .replace("<adult_amount>", adultAmount)
       .replace("<children_amount>", childrenAmount)
       .replace("<infants_amount>", infantsAmount)
       .replace("<flight_class>", flightClass);
-    window.open(deepLink, '_blank');
+    window.open(deepLink, "_blank");
   }
 
   return (
     <Tabs defaultActiveKey="flight" id="book-mask-tabs">
-      <Tab eventKey="flight" title="Flight">
+      <Tab
+        eventKey="flight"
+        title={<span className="icon-block flight-icon">Flight</span>}
+      >
         <FlightForm
           autocompleteOptions={AutocompleteOptions}
           onFlightFormChange={onFlightFormChange}
