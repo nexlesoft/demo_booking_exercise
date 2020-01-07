@@ -1,0 +1,69 @@
+@import "../../../styles/variables.scss";
+
+/* The switch - the box around the slider */
+.toggle {
+  display: block;
+  position: relative;
+  letter-spacing: -1ex;
+  text-indent: -9999px;
+  color: transparent;
+  text-decoration: none;
+  line-height: 1;
+  cursor: pointer;
+  width: 42px;
+  height: 28px;
+  border-radius: 14px;
+  overflow: hidden;
+  background-color: #fff;
+  will-change: transform;
+}
+
+/* Hide default HTML checkbox */
+.toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  i:nth-child(1) {
+    color: white;
+    margin-left: 8px;
+  }
+  i:nth-child(2) {
+    color: blue;
+    margin-right: 7px;
+  }
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 28px;
+  width: 28px;
+  left: 4px;
+  bottom: 2px;
+  background-color: blue;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+}
+
+input:focus + .slider {
+}
+
+input:checked + .slider:before {
+}
+
