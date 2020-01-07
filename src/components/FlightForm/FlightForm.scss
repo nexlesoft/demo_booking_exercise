@@ -56,6 +56,7 @@
   }
   .column2 {
     width: 45%;
+    position: relative;
   }
   .column3 {
     width: 25%;
@@ -331,6 +332,9 @@
 .DateInput {
   width: 100%;
 }
+.DateRangePicker_picker {
+  z-index: 5;
+}
 .DateRangePickerInput {
   display: inline-flex;
   justify-content: center;
@@ -339,7 +343,6 @@
   border: 0;
 }
 .DateInput_input {
-  border: 1px solid $border;
   height: 58px;
   font-size: 16px;
   font-weight: $fontWeightRegular;
@@ -347,4 +350,58 @@
 }
 .DateInput_input__focused {
   border: 1px solid $DimGrey;
+  border-right: dotted 1px $DimGrey;
+}
+.DateRangePickerInput_arrow {
+  display: none;
+}
+.DateRangePickerInput {
+  div:first-of-type {
+    input {
+      border: 1px solid $border;
+      border-right: 0;
+      &:focus {
+        border: 1px solid $DimGrey;
+        border-right: dotted 1px $DimGrey;
+      }
+    }
+  }
+  div:last-of-type {
+    input {
+      border: 1px solid $border;
+      border-left: 1px dotted $border;
+      padding-left: 30px;
+      &:focus {
+        border: 1px solid $DimGrey;
+        border-left: dotted 1px $DimGrey;
+      }
+    }
+  }
+}
+.DateInput__disabled {
+  background: white;
+  color: #333333;
+}
+.DateInput_input__disabled {
+  background: white;
+  font-style: initial;
+  opacity: 0.2;
+}
+.start-date {
+  position: absolute;
+  top: 18px;
+  left: 25px;
+  z-index: 1;
+  font-size: 16px;
+  font-weight: $fontWeightRegular;
+  color: $color66;
+}
+.end-date {
+  position: absolute;
+  top: 18px;
+  left: 210px;
+  z-index: 1;
+  font-size: 16px;
+  font-weight: $fontWeightRegular;
+  color: $color66;
 }

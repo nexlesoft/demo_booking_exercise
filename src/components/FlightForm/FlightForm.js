@@ -33,7 +33,9 @@ class FlightForm extends React.Component {
       flightFormState: { adultAmount, childrenAmount, infantsAmount },
       openDeepLink
     } = this.props;
-    const startDateLabel = this.state.isOutBound ? "Outbound flight" : "One-way";
+    const startDateLabel = this.state.isOutBound
+      ? "Outbound flight"
+      : "One-way";
 
     return (
       <Container className="flight-wrapper">
@@ -59,7 +61,7 @@ class FlightForm extends React.Component {
               }
             />
           </div>
-          <div className="column2">
+          <div className="column2 custom-datepicker">
             <DateRangePicker
               startDateId="startDate"
               endDateId="endDate"
