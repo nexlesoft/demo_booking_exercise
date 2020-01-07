@@ -217,7 +217,7 @@
   }
 }
 
-//
+//DateRangePicker
 .CalendarDay__selected,
 .CalendarDay__selected:active,
 .CalendarDay__selected:hover {
@@ -237,4 +237,9 @@
   background: #f8d6d6;
   border: 1px double #f8d6d6;
   color: $DimGrey;
+}
+.DateRangePicker {
+  td {
+    padding: 5px 10px;
+  }
 }
