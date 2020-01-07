@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import moment from 'moment';
+import moment from "moment";
 // bootstrap components
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
@@ -25,12 +25,12 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
     const deepLink = DeepLink.replace("<flight_type>", flightType)
       .replace("<origin>", origin)
       .replace("<destination>", destination)
-      .replace("<departure_date>", moment(departureDate).format('YYYY-MM-DD'))
+      .replace("<departure_date>", moment(departureDate).format("YYYY-MM-DD"))
       .replace("<adult_amount>", adultAmount)
       .replace("<children_amount>", childrenAmount)
       .replace("<infants_amount>", infantsAmount)
       .replace("<flight_class>", flightClass);
-    window.open(deepLink, '_blank');
+    window.open(deepLink, "_blank");
   }
 
   return (
@@ -43,9 +43,10 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
           openDeepLink={openDeepLink}
         />
       </Tab>
-      <Tab eventKey="Hotel" title="Hotel" />
-      <Tab eventKey="Rental" title="Rental car" />
-      <Tab eventKey="SWISS" title="SWISS Choice" />
+      <Tab eventKey="Stopover" title="Stopover" disabled />
+      <Tab eventKey="Hotel" title="Hotel" disabled />
+      <Tab eventKey="Rental" title="Rental car" disabled />
+      <Tab eventKey="SWISS" title="SWISS Choice" disabled />
     </Tabs>
   );
 };
