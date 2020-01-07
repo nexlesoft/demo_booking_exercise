@@ -21,7 +21,8 @@ class FlightForm extends React.Component {
     this.state = {
       startDate: null,
       endDate: null,
-      focusedInput: null
+      focusedInput: null,
+      isOutBound: false
     };
   }
 
@@ -32,6 +33,7 @@ class FlightForm extends React.Component {
       flightFormState: { adultAmount, childrenAmount, infantsAmount },
       openDeepLink
     } = this.props;
+    const startDateLabel = this.state.isOutBound ? "Outbound flight" : "One-way";
 
     return (
       <Container className="flight-wrapper">
@@ -61,6 +63,7 @@ class FlightForm extends React.Component {
             <DateRangePicker
               startDateId="startDate"
               endDateId="endDate"
+              disabled={!this.state.isOutBound && "endDate"}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={({ startDate, endDate }) => {
@@ -71,6 +74,17 @@ class FlightForm extends React.Component {
               onFocusChange={focusedInput => {
                 this.setState({ focusedInput });
               }}
+              startDatePlaceholderText={startDateLabel}
+              endDatePlaceholderText="Return flight"
+            />
+            <Toggle
+              id="outboun"
+              checked={this.state.isOutBound}
+              onChange={() =>
+                this.setState(prevState => ({
+                  isOutBound: !prevState.isOutBound
+                }))
+              }
             />
           </div>
           <div className="column3">
