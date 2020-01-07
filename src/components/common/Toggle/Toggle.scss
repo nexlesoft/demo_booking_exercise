@@ -104,18 +104,35 @@
   }
 
   /* Hide default HTML checkbox */
-  // input {
-  //   opacity: 0;
-  //   width: 0;
-  //   height: 0;
-  // }
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
 
-  input[type=checkbox]:checked ~ label::after {
+  input[type="checkbox"]:checked ~ label::after {
     -ms-transform: translateX(100%);
     transform: translateX(100%);
   }
-  // input[type=checkbox]:focus ~ label::after {
-  //   -ms-transform: translateX(100%);
-  //   transform: translateX(100%);
-  // }
+
+  input[type="checkbox"]:checked ~ label {
+    .wrapper-toggle {
+      &--single {
+        &::after {
+          opacity: 0;
+        }
+        &::before {
+          opacity: 1;
+        }
+      }
+      &--return {
+        &::after {
+          opacity: 1;
+        }
+        &::before {
+          opacity: 0;
+        }
+      }
+    }
+  }
 }
