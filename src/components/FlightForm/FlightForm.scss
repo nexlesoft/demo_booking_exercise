@@ -4,18 +4,22 @@
   padding: 20px 0;
   //border: solid 1px #d8d8d8;
   margin: 0 auto;
+
   .fl-input {
     display: flex;
     position: relative;
+
     &__autocomplete {
       width: 50%;
     }
+
     &__icon {
       position: absolute;
       top: 24px;
       left: calc(50% - 16px);
     }
   }
+
   &--button {
     font-weight: 300;
     font-size: 20px;
@@ -47,10 +51,12 @@
 .nav-tabs {
   border-bottom: 0;
   width: 100%;
+
   a {
     width: calc(100% / 4 - 3px);
     text-align: center;
   }
+
   .nav-link {
     color: white;
     background-color: rgba(51, 51, 51, 0.9);
@@ -59,6 +65,7 @@
     padding: 12px 0;
     margin-left: 3px;
     border: 0;
+
     &.active {
       color: #c00;
       background-color: rgba(255, 255, 255, 0.9);
@@ -68,32 +75,135 @@
 
 //input
 .fl-input {
-  //background: #fff;
-  //border: 1px solid #cdcdcd;
+  align-items: center;
+
+  .fl-input__autocomplete_from {
+    border: 1px solid #cdcdcd;
+    border-right: 0;
+    padding: 10px;
+    z-index: 2;
+  }
+
+  .fl-input__autocomplete_to {
+    border: 1px solid #cdcdcd;
+    padding: 10px 10px 10px 20px;
+    border-left: 0;
+  }
 }
 
 .MuiInput-underline:before {
   border-bottom: 0 !important;
 }
-label + .MuiInput-formControl {
-  //margin-top: 27px !important;
-}
+
 .MuiInputLabel-formControl {
-  //top: 10px !important;
+  transform: translate(0, 10px) scale(1) !important;
 }
+
+.MuiInputLabel-shrink {
+  transform: translate(0, 1.5px) scale(0.75) !important;
+}
+
+.MuiAutocomplete-inputRoot[class*="MuiInput-root"]
+  .MuiAutocomplete-input:first-child {
+  padding: 0 !important;
+}
+
 .list-item-brief {
   padding: 1px 3px;
   font-size: 0.7em;
+  margin-left: 6px;
+  font-weight: 600;
 }
+
 .MuiAutocomplete-root .ex-input {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  bottom: 18px;
+  bottom: 8px !important;
 }
+
 .MuiAutocomplete-endAdornment {
   display: none;
 }
+
 .MuiInput-underline:after {
   border-bottom: 2px solid #333333;
+}
+
+.MuiFormLabel-root.Mui-focused {
+  color: #333333 !important;
+}
+
+.MuiInput-underline:after {
+  left: -10px !important;
+  bottom: -10px !important;
+  border: 1px solid #333333 !important;
+  height: 57px !important;
+}
+
+.MuiAutocomplete-option[data-focus="true"] {
+  background-color: #cc0000 !important;
+  color: white !important;
+}
+
+.MuiAutocomplete-option {
+  color: #666666 !important;
+  padding: 5px 10px !important;
+  font-size: 14px !important;
+}
+
+.MuiPaper-rounded {
+  border-radius: 0 !important;
+}
+
+.MuiAutocomplete-listbox {
+  margin: 0 !important;
+  padding: 0 !important;
+
+  &::-webkit-scrollbar {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+}
+
+.MuiAutocomplete-paper > ul {
+  max-height: 60vh !important;
+}
+
+.MuiAutocomplete-paper {
+  margin: 11px -10px 0 -9px !important;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.fl-input__autocomplete_from {
+  .MuiInput-underline:after {
+    border-right: dotted 1px #333333 !important;
+    right: -10px;
+    z-index: 0;
+  }
+}
+
+.fl-input__autocomplete_to {
+  .MuiInput-underline:after {
+    border-left: dotted 1px #333333 !important;
+    right: -10px !important;
+    left: -20px !important;
+  }
+}
+
+.fight-icon {
+  border-left: dotted 1px #cdcdcd;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  left: 50%;
+
+  img {
+    margin-left: -50%;
+    background: white;
+    padding: 4px;
+    z-index: 3;
+  }
 }
