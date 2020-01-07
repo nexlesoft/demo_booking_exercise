@@ -37,7 +37,12 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
     <Tabs defaultActiveKey="flight" id="book-mask-tabs">
       <Tab
         eventKey="flight"
-        title={<span className="icon-block flight-icon">Flight</span>}
+        title={
+          <>
+            <img src={require("../../images/ic-flight.png")} alt="flight" />
+            <span>Flight</span>
+          </>
+        }
       >
         <FlightForm
           autocompleteOptions={AutocompleteOptions}
@@ -46,10 +51,46 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
           openDeepLink={openDeepLink}
         />
       </Tab>
-      <Tab eventKey="Stopover" title="Stopover" disabled />
-      <Tab eventKey="Hotel" title="Hotel" disabled />
-      <Tab eventKey="Rental" title="Rental car" disabled />
-      <Tab eventKey="SWISS" title="SWISS Choice" disabled />
+      <Tab
+        disabled
+        eventKey="Stopover"
+        title={
+          <>
+            <img src={require("../../images/ic-stopover.png")} alt="Stopover" />
+            <span>Stopover</span>
+          </>
+        }
+      />
+      <Tab
+        disabled
+        eventKey="Hotel"
+        title={
+          <>
+            <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
+            <span>Hotel</span>
+          </>
+        }
+      />
+      <Tab
+        disabled
+        eventKey="Rental"
+        title={
+          <>
+            <img src={require("../../images/ic-rental.png")} alt="Rental" />
+            <span>Rental car</span>
+          </>
+        }
+      />
+      <Tab
+        disabled
+        eventKey="SWISS"
+        title={
+          <>
+            <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
+            <span>SWISS Choice</span>
+          </>
+        }
+      />
     </Tabs>
   );
 };

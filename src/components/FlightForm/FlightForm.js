@@ -46,7 +46,7 @@ class FlightForm extends React.Component {
               }
             />
             <div className="fight-icon">
-              <img src={require("../../images/fight.png")} alt="fight" />
+              <img src={require("../../images/flight.png")} alt="flight" />
             </div>
             <ExAutocomplete
               className="fl-input__autocomplete fl-input__autocomplete_to"
