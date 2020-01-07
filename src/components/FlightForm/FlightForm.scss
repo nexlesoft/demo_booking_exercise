@@ -21,9 +21,7 @@
   &--button {
     font-weight: 300;
     font-size: 20px;
-    font-size: 1.25rem;
     line-height: 1.2;
-    background-color: $colorF2;
     display: inline-block;
     vertical-align: middle;
     padding: 12px 20px;
@@ -41,7 +39,6 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-top: 15px;
   }
 
   .column1,
@@ -113,6 +110,11 @@
     img {
       margin-right: 10px;
     }
+  }
+}
+@media only screen and (max-width: 767px) {
+  nav {
+    flex-direction: column;
   }
 }
 
@@ -308,6 +310,7 @@
   color: $DimGrey;
 }
 .DateRangePicker {
+  width: 100%;
   td {
     padding: 5px 10px;
   }
@@ -326,7 +329,4 @@
 }
 .DateInput {
   width: 100%;
-}
-//column{}
-.column-grid {
 }
