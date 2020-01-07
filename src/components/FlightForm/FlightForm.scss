@@ -134,7 +134,7 @@
   .fl-input__autocomplete_from {
     border: 1px solid #cdcdcd;
     border-right: 0;
-    padding: 10px;
+    padding: 10px 10px 10px 15px;
     z-index: 2;
   }
 
@@ -162,7 +162,21 @@
   .MuiAutocomplete-input:first-child {
   padding: 0 !important;
 }
-
+.MuiAutocomplete-input {
+  max-width: 80px !important;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  text-overflow: ellipsis;
+}
+.list-item-value {
+  max-width: 80px !important;
+  margin-right: 20px;
+}
+.MuiAutocomplete-inputRoot .MuiAutocomplete-input {
+  width: 80px !important;
+  min-width: 80px !important;
+}
 .list-item-brief {
   padding: 1px 3px;
   font-size: 0.7em;
@@ -190,7 +204,7 @@
 }
 
 .MuiInput-underline:after {
-  left: -10px !important;
+  left: -15px !important;
   bottom: -10px !important;
   border: 1px solid $DimGrey !important;
   height: 57px !important;
