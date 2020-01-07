@@ -10,14 +10,12 @@
   .count {
     &--label {
       line-height: 1.2;
-      font-size: 18px;
-      font-size: 1.25rem;
-      line-height: 1.2;
+      font-size: 17px;
       float: left;
       width: 100%;
       color: $DimGrey;
       font-weight: $fontWeightRegular;
-      margin-right: -110px;
+      margin-right: -100px;
       margin-bottom: 0;
       & small {
         font-size: 13px;
@@ -27,8 +25,7 @@
     }
     &--number {
       &--input {
-        font-size: 18px;
-        font-size: 1.25rem;
+        font-size: 17px;
         display: table-cell;
         text-align: center;
         height: 36px;
@@ -54,8 +51,7 @@
         -moz-appearance: textfield;
       }
       &--button {
-        font-size: 18px;
-        font-size: 1.25rem;
+        font-size: 17px;
         display: table-cell;
         position: relative;
         background-color: $colorF2;

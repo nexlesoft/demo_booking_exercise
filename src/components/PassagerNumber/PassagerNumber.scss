@@ -2,7 +2,8 @@
 
 .passager_number {
   background: white;
-  //border: 1px solid #CDCDCD;
+  position: relative;
+
   &--trigger {
     cursor: pointer;
     position: relative;
@@ -67,16 +68,16 @@
   .drop-down {
     position: absolute;
     top: 58px;
-    left: 15px;
-    width: 300px;
-    z-index: 2;
+    left: 0;
+    width: 100%;
+    z-index: 4;
   }
   .button-close {
     height: 56px;
     text-align: center;
     color: $DimGrey;
     font-size: 14px;
-    background: transparent;
+    background: white;
     box-shadow: none;
     width: 100%;
     border: 1px solid $border;
