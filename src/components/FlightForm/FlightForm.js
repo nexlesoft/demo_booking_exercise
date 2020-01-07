@@ -28,11 +28,7 @@ class FlightForm extends React.Component {
     const {
       autocompleteOptions,
       onFlightFormChange,
-      flightFormState: {
-        adultAmount,
-        childrenAmount,
-        infantsAmount
-      },
+      flightFormState: { adultAmount, childrenAmount, infantsAmount },
       openDeepLink
     } = this.props;
 
@@ -44,13 +40,20 @@ class FlightForm extends React.Component {
               className="fl-input__autocomplete fl-input__autocomplete_from"
               options={autocompleteOptions}
               tflabel="From"
-              onChange={(event, value) => onFlightFormChange("origin", value && value.brief)}
+              onChange={(event, value) =>
+                onFlightFormChange("origin", value && value.brief)
+              }
             />
+            <div className="fight-icon">
+              <img src={require("../../images/fight.png")} alt="fight" />
+            </div>
             <ExAutocomplete
               className="fl-input__autocomplete fl-input__autocomplete_to"
               options={autocompleteOptions}
               tflabel="To"
-              onChange={(event, value) => onFlightFormChange("destination", value && value.brief)}
+              onChange={(event, value) =>
+                onFlightFormChange("destination", value && value.brief)
+              }
             />
           </Col>
           <Col>
@@ -60,7 +63,7 @@ class FlightForm extends React.Component {
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={({ startDate, endDate }) => {
-                onFlightFormChange('departureDate', startDate);
+                onFlightFormChange("departureDate", startDate);
                 this.setState({ startDate, endDate });
               }}
               focusedInput={this.state.focusedInput}
@@ -70,14 +73,25 @@ class FlightForm extends React.Component {
             />
           </Col>
           <Col>
-            <PassagerNumber amounts={{ adultAmount, childrenAmount, infantsAmount }} onChange={(fieldName, value) => onFlightFormChange(fieldName, value)} />
+            <PassagerNumber
+              amounts={{ adultAmount, childrenAmount, infantsAmount }}
+              onChange={(fieldName, value) =>
+                onFlightFormChange(fieldName, value)
+              }
+            />
           </Col>
         </Row>
         <Row>
           <Col />
           <Col />
           <Col>
-            <button type="button" className="flight-wrapper--button" onClick={() => openDeepLink()}>Search</button>
+            <button
+              type="button"
+              className="flight-wrapper--button"
+              onClick={() => openDeepLink()}
+            >
+              Search
+            </button>
           </Col>
         </Row>
       </Container>
