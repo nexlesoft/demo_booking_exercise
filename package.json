@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.8.2",
     "@material-ui/lab": "^4.0.0-alpha.38",
+    "@types/jest": "^24.0.25",
     "apisauce": "^1.1.1",
     "bootstrap": "^4.4.1",
     "connected-react-router": "^6.5.2",
@@ -22,6 +23,7 @@
     "react-redux-toastr": "^7.6.3",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.2.0",
+    "react-test-renderer": "^16.12.0",
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0"
   },

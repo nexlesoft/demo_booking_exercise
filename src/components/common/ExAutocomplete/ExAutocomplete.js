@@ -59,12 +59,14 @@ function ExAutocomplete(props) {
 
 ExAutocomplete.propTypes = {
   tflabel: PropTypes.string,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  options: PropTypes.array
 };
 
 ExAutocomplete.defaultProps = {
   tflabel: "",
-  required: false
+  required: false,
+  options: []
 };
 
 export default ExAutocomplete;
