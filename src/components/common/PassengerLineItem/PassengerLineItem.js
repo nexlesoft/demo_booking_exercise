@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 
-import "./InputCount.scss";
+import "./PassengerLineItem.scss";
 
-function InputCount({
+function PassengerLineItem({
   id,
   name,
   caption,
@@ -53,7 +53,7 @@ function InputCount({
   );
 }
 
-InputCount.propTypes = {
+PassengerLineItem.propTypes = {
   className: PropTypes.string,
   name: PropTypes.string,
   id: PropTypes.string,
@@ -65,7 +65,7 @@ InputCount.propTypes = {
   onChange: PropTypes.func
 };
 
-InputCount.defaultProps = {
+PassengerLineItem.defaultProps = {
   className: "",
   name: "Adults",
   id: "adults-12",
@@ -77,4 +77,4 @@ InputCount.defaultProps = {
   onChange: () => {}
 };
 
-export default InputCount;
+export default PassengerLineItem;

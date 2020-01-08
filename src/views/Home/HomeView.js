@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import moment from "moment";
 // bootstrap components
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
-import { i18N } from "../../utils/intl";
+import { FormattedMessage } from "react-intl";
+import locationService from "../../services/locationService";
+
 // components
 import FlightForm from "../../components/FlightForm";
 
-import { AutocompleteOptions, DeepLink } from "../../constants/demoData";
+import urls from "../../api/urls";
 
 const HomeView = ({ flightFormState, onFlightFormChange }) => {
+  const [autocompleteOptions, setAutocompleteOptions] = useState([]);
+  useEffect(() => {
+    locationService.autocompleteOptions().then(res => {
+      setAutocompleteOptions(res.data);
+    });
+  }, []);
+
   function openDeepLink() {
     const {
       origin,
@@ -22,7 +31,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
       infantsAmount,
       flightClass
     } = flightFormState;
-    const deepLink = DeepLink.replace("<flight_type>", flightType)
+    const deepLink = urls.home.booking.replace("<flight_type>", flightType)
       .replace("<origin>", origin)
       .replace("<destination>", destination)
       .replace("<departure_date>", moment(departureDate).format("YYYY-MM-DD"))
@@ -37,15 +46,15 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
     <Tabs defaultActiveKey="flight" id="book-mask-tabs">
       <Tab
         eventKey="flight"
-        title={
-          <>
+        title={(
+<>
             <img src={require("../../images/ic-flight.png")} alt="flight" />
-            <span>Flight</span>
+            <span><FormattedMessage id="home.flight" /></span>
           </>
-        }
+)}
       >
         <FlightForm
-          autocompleteOptions={AutocompleteOptions}
+          autocompleteOptions={autocompleteOptions}
           onFlightFormChange={onFlightFormChange}
           flightFormState={flightFormState}
           openDeepLink={openDeepLink}
@@ -54,42 +63,42 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
       <Tab
         disabled
         eventKey="Stopover"
-        title={
-          <>
+        title={(
+<>
             <img src={require("../../images/ic-stopover.png")} alt="Stopover" />
-            <span>Stopover</span>
+            <span><FormattedMessage id="home.stopover" /></span>
           </>
-        }
+)}
       />
       <Tab
         disabled
         eventKey="Hotel"
-        title={
-          <>
+        title={(
+<>
             <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
-            <span>Hotel</span>
+            <span><FormattedMessage id="home.hotel" /></span>
           </>
-        }
+)}
       />
       <Tab
         disabled
         eventKey="Rental"
-        title={
-          <>
+        title={(
+<>
             <img src={require("../../images/ic-rental.png")} alt="Rental" />
-            <span>Rental car</span>
+            <span><FormattedMessage id="home.rental_car" /></span>
           </>
-        }
+)}
       />
       <Tab
         disabled
         eventKey="SWISS"
-        title={
-          <>
+        title={(
+<>
             <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
-            <span>SWISS Choice</span>
+            <span><FormattedMessage id="home.swiss_choice" /></span>
           </>
-        }
+)}
       />
     </Tabs>
   );

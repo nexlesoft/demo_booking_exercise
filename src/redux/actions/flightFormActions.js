@@ -1,5 +1,4 @@
 import { FLIGHT_FORM_ACTION_TYPE } from "../../constants/actionTypes";
-import { showLoading, hideLoading } from "./appActions";
 
 export function flightFormChange(fieldName, value) {
   return {

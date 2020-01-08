@@ -7,11 +7,7 @@ export const SERVER_URL = getURL(BuildUtils.build.serverHost, "://");
 export default {
   baseUrl: SERVER_URL,
 
-  members: {
-    manualLogin: "login",
-    logout: "logout"
+  home: {
+    booking: "https://www.swiss.com/us/en/Book/<flight_type>/<origin>-<destination>/from-<departure_date>/adults-<adult_amount>/children-<children_amount>/infants-<infants_amount>/class-<flight_class>/al-LX/sidmbvl",
   },
-  clientDetail: {
-    mainDetails: "clientdetail/main-details/{client_id}"
-  }
 };

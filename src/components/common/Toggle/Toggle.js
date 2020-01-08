@@ -5,18 +5,17 @@ import PropTypes from "prop-types";
 import cn from "classnames";
 import "./Toggle.scss";
 
-const Toggle = ({ id, disabled, onChange, checked, className, ...rest }) => {
+const Toggle = ({ propId, onChange, checked, className, ...rest }) => {
   const options = {
     className: cn(`wrapper-toggle`, className, {
       active: rest.active
     }),
-    disabled,
     ...rest
   };
   return (
     <div {...options}>
-      <input type="checkbox" id={id} onChange={e => onChange(e.target.value)} checked={checked} />
-      <label className="wrapper-toggle--label" htmlFor={id}>
+      <input type="checkbox" id={propId} onChange={e => onChange(e.target.value)} checked={checked} />
+      <label className="wrapper-toggle--label" htmlFor={propId}>
         <span className="wrapper-toggle--single" />
         <span className="wrapper-toggle--return" />
       </label>
@@ -25,16 +24,14 @@ const Toggle = ({ id, disabled, onChange, checked, className, ...rest }) => {
 };
 
 Toggle.propTypes = {
-  id: PropTypes.string,
+  propId: PropTypes.string,
   className: PropTypes.string,
-  disabled: PropTypes.bool,
   onChange: PropTypes.func,
   checked: PropTypes.bool
 };
 
 Toggle.defaultProps = {
-  id: "",
-  disabled: false,
+  propId: "",
   className: null,
   onChange: () => {},
   checked: false

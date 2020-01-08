@@ -1,7 +1,7 @@
 import Loading from "./Loading";
 import Spinner from "./Spinner";
-import InputCount from "./InputCount";
+import PassengerLineItem from "./PassengerLineItem";
 import ExAutocomplete from "./ExAutocomplete";
 import Toggle from './Toggle';
 
-export { Loading, Spinner, ExAutocomplete, InputCount, Toggle };
+export { Loading, Spinner, ExAutocomplete, PassengerLineItem, Toggle };

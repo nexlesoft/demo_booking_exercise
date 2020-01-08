@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 
-import { InputCount } from "../common";
+import { PassengerLineItem } from "../common";
 
-import "./PassagerNumber.scss";
+import "./PassengerSelect.scss";
 
-function PassagerNumber({ amounts, onChange, className, ...rest }) {
+function PassengerSelect({ amounts, onChange, className, ...rest }) {
   const { adultAmount, childrenAmount, infantsAmount } = amounts;
   const [dropdown, setDropdown] = useState(false);
   return (
@@ -24,7 +24,7 @@ function PassagerNumber({ amounts, onChange, className, ...rest }) {
         </div>
         {dropdown && (
           <div className="drop-down">
-            <InputCount
+            <PassengerLineItem
               id="adults"
               name="Adults"
               caption="12+ years"
@@ -33,7 +33,7 @@ function PassagerNumber({ amounts, onChange, className, ...rest }) {
               value={adultAmount}
               onChange={value => onChange("adultAmount", value)}
             />
-            <InputCount
+            <PassengerLineItem
               id="children"
               name="Children"
               caption="2-11 years"
@@ -42,7 +42,7 @@ function PassagerNumber({ amounts, onChange, className, ...rest }) {
               value={childrenAmount}
               onChange={value => onChange("childrenAmount", value)}
             />
-            <InputCount
+            <PassengerLineItem
               id="infants"
               name="Infants"
               caption="0-1 years"
@@ -65,14 +65,14 @@ function PassagerNumber({ amounts, onChange, className, ...rest }) {
   );
 }
 
-PassagerNumber.propTypes = {
+PassengerSelect.propTypes = {
   amounts: PropTypes.object,
   onChange: PropTypes.func
 };
 
-PassagerNumber.defaultProps = {
+PassengerSelect.defaultProps = {
   amounts: {},
   onChange: () => {}
 };
 
-export default PassagerNumber;
+export default PassengerSelect;

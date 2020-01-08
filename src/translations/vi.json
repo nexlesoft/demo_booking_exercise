@@ -1,20 +1,3 @@
 {
-  "about.title": "Gioi thieu",
-  "about.description": "Vi du nay la mot phan cua <a href=\"https://github.com/coryhouse/react-slingshot\">React-Slingshot\n                starter kit</a>.",
-  "about.click_to_this_bad_link": "Nhan vao link khong work nay",
-  "about.to_see_404": " de xem 404 page",
-  "home.header": "VNese React JS Template - Redux Thunk ",
-  "home.get_started": "Bat dau",
-  "home.get_code_at": "Lay code tu",
-  "home.reactjs_template": "ReactJS Template",
-  "home.review_the": "Xem demo tai ",
-  "home.demo_app": "Chay thu",
-  "notfound.header": "404 Page Not Found",
-  "notfound.go_back_to_home": "Go back to homepage",
-  "login.email_placeholder_text": "Enter an email",
-  "login.username_placeholder_text": "Enter a username",
-  "login.password_placeholder_text": "Enter a password",
-  "login.email_label": "Email",
-  "login.username_label": "Username",
-  "login.password_label": "Password"
+  "home.advanced_search": "Advanced search"
 }

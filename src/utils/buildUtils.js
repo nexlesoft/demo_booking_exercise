@@ -2,17 +2,17 @@
 const dev = {};
 dev.buildMode = "DEV";
 dev.serverSchema = "https";
-dev.serverHost = "chatapi.redhotpie.com.au"; // 'api.server.dev';
+dev.serverHost = "www.google.com"; // 'api.server.dev';
 
 const staging = {};
 staging.buildMode = "DEV";
 staging.serverSchema = "https";
-staging.serverHost = "chatapi.redhotpie.com.au"; // 'api.server.dev';
+staging.serverHost = "www.google.com"; // 'api.server.dev';
 
 const production = {};
 production.buildMode = "PRODUCTION";
 production.serverSchema = "https";
-production.serverHost = "chatapi.redhotpie.com.au";
+production.serverHost = "www.google.com";
 
 //
 const buildApp = (build) => {
@@ -31,7 +31,7 @@ const buildApp = (build) => {
 const getBuildType = () => {
   if (process.env.NODE_ENV === "staging") {
     return staging;
-  } else if (process.env.NODE_ENV === "production") {
+  } if (process.env.NODE_ENV === "production") {
     return production;
   }
   return dev;

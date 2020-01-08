@@ -6,3 +6,8 @@ export const DateTimeFormat = {
   TIME: "hh:mm",
   AM_PM: "A"
 };
+
+export const FlightType = {
+  Flight: "flight",
+  Outbound: "outbound"
+};

@@ -1,7 +1,7 @@
 import React from "react";
 import { mount  } from "enzyme";
 import ExAutocomplete from "./ExAutocomplete";
-import AutocompleteOptions from '../../../constants/demoData';
+import { MockAutocompleteOptions } from "../../../utils/mockData";
 
 function renderExAutocomplete(args) {
   const defaultProps = {
@@ -14,8 +14,8 @@ function renderExAutocomplete(args) {
   return mount (<ExAutocomplete {...props} />);
 }
 
-it('labels input as "From" when tflabel changed to "From"', () => {
-    const wrapper = renderExAutocomplete({ tflabel: "From", options: AutocompleteOptions });
+it('Auto complete has correct label tflabel prop is set', () => {
+    const wrapper = renderExAutocomplete({ tflabel: "From", options: MockAutocompleteOptions });
     expect(wrapper.find(".MuiFormLabel-root").text()).toBe("From");
 });
 

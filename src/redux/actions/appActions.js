@@ -1,7 +1,6 @@
 import { APP_ACTION_TYPE } from "../../constants/actionTypes";
 
 export function showLoading() {
-  console.log("show Loading");
   return dispatch => {
     dispatch({
       type: APP_ACTION_TYPE.SHOW_LOADING

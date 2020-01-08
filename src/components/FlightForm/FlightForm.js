@@ -4,14 +4,14 @@ import PropTypes from "prop-types";
 import { DateRangePicker } from "react-dates";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
+import { FormattedMessage } from "react-intl";
 import ExAutocomplete from "../common/ExAutocomplete";
 import Toggle from "../common/Toggle";
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
-import PassagerNumber from "../PassagerNumber";
+import PassengerSelect from "../PassengerSelect";
+import { FlightType } from "../../constants/common";
 
 import "./FlightForm.scss";
 
@@ -23,21 +23,32 @@ class FlightForm extends React.Component {
     this.state = {
       startDate: null,
       endDate: null,
-      focusedInput: null,
-      isOutBound: false
+      focusedInput: null
     };
   }
+
+  onFlightTypeChange = flightType => {
+    const { onFlightFormChange } = this.props;
+    onFlightFormChange(
+      "flightType",
+      flightType === FlightType.Flight ? FlightType.Outbound : FlightType.Flight
+    );
+  };
 
   render() {
     const {
       autocompleteOptions,
       onFlightFormChange,
-      flightFormState: { adultAmount, childrenAmount, infantsAmount },
+      flightFormState: {
+        adultAmount,
+        childrenAmount,
+        infantsAmount,
+        flightType
+      },
       openDeepLink
     } = this.props;
-    const startDateLabel = this.state.isOutBound
-      ? "Outbound flight"
-      : "One-way";
+    const isOutBound = flightType === FlightType.Outbound;
+    const startDateLabel = isOutBound ? "Outbound flight" : "One-way";
 
     return (
       <Container className="flight-wrapper">
@@ -70,7 +81,7 @@ class FlightForm extends React.Component {
               <DateRangePicker
                 startDateId="startDate"
                 endDateId="endDate"
-                disabled={!this.state.isOutBound && "endDate"}
+                disabled={!isOutBound && "endDate"}
                 startDate={this.state.startDate}
                 endDate={this.state.endDate}
                 onDatesChange={({ startDate, endDate }) => {
@@ -86,17 +97,13 @@ class FlightForm extends React.Component {
                 required
               />
               <Toggle
-                id="outboun"
-                checked={this.state.isOutBound}
-                onChange={() =>
-                  this.setState(prevState => ({
-                    isOutBound: !prevState.isOutBound
-                  }))
-                }
+                propId="outboun"
+                checked={isOutBound}
+                onChange={() => this.onFlightTypeChange(flightType)}
               />
             </div>
             <div className="column3">
-              <PassagerNumber
+              <PassengerSelect
                 amounts={{ adultAmount, childrenAmount, infantsAmount }}
                 onChange={(fieldName, value) =>
                   onFlightFormChange(fieldName, value)
@@ -107,16 +114,26 @@ class FlightForm extends React.Component {
           <Row className="center-flex">
             <div className="column4 list-advanced">
               <ul>
-                <li>Advanced search</li>
-                <li>Arrivals and departures</li>
-                <li>Inspire me</li>
-                <li>Miles & More</li>
-                <li>Check-in</li>
+                <li>
+                  <FormattedMessage id="home.advanced_search" />
+                </li>
+                <li>
+                  <FormattedMessage id="home.arrivals_and_departures" />
+                </li>
+                <li>
+                  <FormattedMessage id="home.inspire_me" />
+                </li>
+                <li>
+                  <FormattedMessage id="home.miles_more" />
+                </li>
+                <li>
+                  <FormattedMessage id="home.Check_in" />
+                </li>
               </ul>
             </div>
             <div className="column3">
               <button type="submit" className="flight-wrapper--button">
-                Search
+                <FormattedMessage id="home.search" />
               </button>
             </div>
           </Row>
