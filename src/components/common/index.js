@@ -1,7 +1,7 @@
 import Loading from "./Loading";
 import Spinner from "./Spinner";
 import PassengerLineItem from "./PassengerLineItem";
-import ExAutocomplete from "./ExAutocomplete";
-import Toggle from './Toggle';
+import LocationSelect from "./LocationSelect";
+import FlightTypeToggle from './FlightTypeToggle';
 
-export { Loading, Spinner, ExAutocomplete, PassengerLineItem, Toggle };
+export { Loading, Spinner, LocationSelect, PassengerLineItem, FlightTypeToggle };

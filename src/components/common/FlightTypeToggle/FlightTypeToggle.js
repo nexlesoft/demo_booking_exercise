@@ -3,9 +3,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
-import "./Toggle.scss";
+import "./FlightTypeToggle.scss";
 
-const Toggle = ({ propId, onChange, checked, className, ...rest }) => {
+const FlightTypeToggle = ({ propId, onChange, checked, className, ...rest }) => {
   const options = {
     className: cn(`wrapper-toggle`, className, {
       active: rest.active
@@ -23,18 +23,18 @@ const Toggle = ({ propId, onChange, checked, className, ...rest }) => {
   );
 };
 
-Toggle.propTypes = {
+FlightTypeToggle.propTypes = {
   propId: PropTypes.string,
   className: PropTypes.string,
   onChange: PropTypes.func,
   checked: PropTypes.bool
 };
 
-Toggle.defaultProps = {
+FlightTypeToggle.defaultProps = {
   propId: "",
   className: null,
   onChange: () => {},
   checked: false
 };
 
-export default Toggle;
+export default FlightTypeToggle;

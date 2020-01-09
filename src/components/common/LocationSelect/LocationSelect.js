@@ -6,9 +6,9 @@ import cn from "classnames";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import TextField from "@material-ui/core/TextField";
 
-import "./ExAutocomplete.scss";
+import "./LocationSelect.scss";
 
-function ExAutocomplete(props) {
+function LocationSelect(props) {
   const { tflabel, required, options } = props;
   return (
     <Autocomplete
@@ -57,16 +57,16 @@ function ExAutocomplete(props) {
   );
 }
 
-ExAutocomplete.propTypes = {
+LocationSelect.propTypes = {
   tflabel: PropTypes.string,
   required: PropTypes.bool,
   options: PropTypes.array
 };
 
-ExAutocomplete.defaultProps = {
+LocationSelect.defaultProps = {
   tflabel: "",
   required: false,
   options: []
 };
 
-export default ExAutocomplete;
+export default LocationSelect;

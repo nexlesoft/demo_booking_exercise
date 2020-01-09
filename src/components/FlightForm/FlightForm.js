@@ -5,8 +5,8 @@ import { DateRangePicker } from "react-dates";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { FormattedMessage } from "react-intl";
-import ExAutocomplete from "../common/ExAutocomplete";
-import Toggle from "../common/Toggle";
+import LocationSelect from "../common/LocationSelect";
+import FlightTypeToggle from "../common/FlightTypeToggle";
 
 import "react-dates/initialize";
 import "react-dates/lib/css/_datepicker.css";
@@ -55,7 +55,7 @@ class FlightForm extends React.Component {
         <form onSubmit={() => openDeepLink()}>
           <Row>
             <div className="column1 fl-input">
-              <ExAutocomplete
+              <LocationSelect
                 className="fl-input__autocomplete fl-input__autocomplete_from"
                 options={autocompleteOptions}
                 tflabel="From"
@@ -67,7 +67,7 @@ class FlightForm extends React.Component {
               <div className="fight-icon">
                 <img src={flightIcon} alt="flight" />
               </div>
-              <ExAutocomplete
+              <LocationSelect
                 className="fl-input__autocomplete fl-input__autocomplete_to"
                 options={autocompleteOptions}
                 tflabel="To"
@@ -96,7 +96,7 @@ class FlightForm extends React.Component {
                 endDatePlaceholderText="Return flight"
                 required
               />
-              <Toggle
+              <FlightTypeToggle
                 propId="outboun"
                 checked={isOutBound}
                 onChange={() => this.onFlightTypeChange(flightType)}

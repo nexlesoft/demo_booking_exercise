@@ -22,10 +22,10 @@ function renderFlightForm(args) {
   );
 }
 
-it("Flight Form has all required fields: ExAutocomplete, DateRangePicker, Toggle, PassengerSelect, form", () => {
+it("Flight Form has all required fields: LocationSelect, DateRangePicker, Toggle, PassengerSelect, form", () => {
   const wrapper = renderFlightForm({ autocompleteOptions: [] });
   //   console.log(wrapper.debug());
-  expect(wrapper.find("ExAutocomplete").length).toBe(2);
+  expect(wrapper.find("LocationSelect").length).toBe(2);
   expect(wrapper.find("DateRangePicker").length).toBe(1);
   expect(wrapper.find("Toggle").length).toBe(1);
   expect(wrapper.find("PassengerSelect").length).toBe(1);
