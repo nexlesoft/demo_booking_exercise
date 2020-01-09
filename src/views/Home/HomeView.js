@@ -50,7 +50,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
     <Tab.Container id="booking-tabs" defaultActiveKey="flight">
       <Row>
         <Col sm={12}>
-          <Nav variant="pills" className="flex-column">
+          <Nav variant="pills" className="flex-row">
             <Nav.Item>
               <Nav.Link eventKey="flight">
                 <img src={require("../../images/ic-flight.png")} alt="flight" />
