@@ -94,6 +94,7 @@ class FlightForm extends React.Component {
               startDatePlaceholderText={startDateLabel}
               endDatePlaceholderText="Return flight"
               required
+              displayFormat="dd DD/MM/YYYY"
             />
             <FlightTypeToggle
               propId="outboun"
