@@ -237,3 +237,61 @@ input.large {
     max-width: 1200px !important;
   }
 }
+
+.nav-pills, .tab-content {
+  border-bottom: 0;
+  width: 100%;
+
+  a {
+    //width: calc(100% / 5 - 3px);
+    text-align: center;
+    flex: 1;
+  }
+
+  .nav-link {
+    color: white;
+    background-color: rgba(51, 51, 51, 0.9);
+    border-radius: 0;
+    font-size: 14px;
+    padding: 12px 0;
+    margin-left: 3px;
+    border: 0;
+
+    &.active {
+      color: #c00;
+      background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    &.disabled {
+      color: white;
+      background-color: rgba(51, 51, 51, 0.9);
+    }
+
+    img {
+      margin-right: 10px;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-pills {
+    display: flex;
+  }
+
+  .tab-content {
+    .nav-link {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-pills {
+    display: none;
+  }
+  .tab-content {
+    .nav-link {
+      display: flex;
+    }
+  }
+}
