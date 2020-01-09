@@ -4,7 +4,7 @@
 .wrapper-toggle {
   width: auto;
   position: absolute;
-  left: 46.1%;
+  left: 45.4%;
   top: -9px;
 
   &--label {
@@ -140,5 +140,17 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 1050px) {
+  .wrapper-toggle {
+    left: 45.8%;
+  }
+}
+
+@media only screen and (max-width: 736px) {
+  .wrapper-toggle {
+    left: 45.6%;
   }
 }

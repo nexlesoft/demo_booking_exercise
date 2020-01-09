@@ -3,26 +3,25 @@
 @import "../../node_modules/react-redux-toastr/src/styles/index";
 
 @font-face {
-  font-family: 'CH-Sans';
-  src: url('./fonts/chsans-regular.woff2');
+  font-family: "CH-Sans";
+  src: url("./fonts/chsans-regular.woff2");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'CH-Sans light';
-  src: url('./fonts/chsans-light.woff2');
+  font-family: "CH-Sans light";
+  src: url("./fonts/chsans-light.woff2");
   font-weight: lighter;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'CH-Sans bold';
-  src: url('./fonts/chsans-bold.woff2');
+  font-family: "CH-Sans bold";
+  src: url("./fonts/chsans-bold.woff2");
   font-weight: bold;
   font-style: normal;
 }
-
 
 /* Styles */
 
@@ -232,6 +231,7 @@ input.large {
     margin: 0;
   }
 }
+
 @media (min-width: 768px) {
   .container {
     max-width: 1200px !important;
