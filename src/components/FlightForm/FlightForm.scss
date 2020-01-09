@@ -2,6 +2,48 @@
 
 .flight-wrapper {
   margin: 20px auto;
+  padding: 0 10px;
+
+  form {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+  }
+
+  .locations,
+  .dates,
+  .passengers,
+  .links,
+  .submit {
+    padding-right: 10px;
+    padding-left: 10px;
+    padding-bottom: 15px;
+  }
+
+  .locations {
+    width: 38%;
+  }
+
+  .dates {
+    width: 38%;
+    position: relative;
+  }
+
+  .passengers {
+    width: 24%;
+  }
+
+  .links {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+  }
+
+  .submit {
+    margin-left: 76%;
+    width: 24%;
+  }
 
   .fl-input {
     display: flex;
@@ -34,59 +76,65 @@
     font-weight: $fontWeightRegular;
     width: 100%;
     height: 56px;
+
     &:focus {
       border: 0;
       box-shadow: none;
       outline: 0;
     }
+
     &:hover {
       background-color: #ad0000;
     }
   }
+}
 
-  .column1,
-  .column2,
-  .column3,
-  .column4 {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
-  .column1 {
-    width: 30%;
-  }
-  .column2 {
-    width: 45%;
-    position: relative;
-  }
-  .column3 {
-    width: 25%;
-  }
-  .column4 {
-    width: 75%;
-  }
-  .center-flex {
-    align-items: center;
-    margin-top: 15px;
-  }
-}
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 1050px) {
   .flight-wrapper {
-    margin: 20px auto 0 auto;
-    .row {
-      flex-direction: column;
-      .column1,
-      .column2,
-      .column3,
-      .column4 {
-        width: 100%;
-        margin-bottom: 15px;
-      }
+    .locations {
+      order: 1;
+      width: 50%;
     }
-    .center-flex {
-      margin-top: 0;
+
+    .dates {
+      order: 3;
+      width: 50%;
+    }
+
+    .passengers {
+      order: 3;
+      width: auto;
+      min-width: 50%;
+    }
+
+    .submit {
+      order: 4;
+      margin-left: 0;
+      width: 50%;
+    }
+
+    .links {
+      order: 4;
+      position: static;
+      display: block;
+      width: 100%;
     }
   }
 }
+
+@media only screen and (max-width: 736px) {
+  .flight-wrapper {
+    .locations,
+    .dates,
+    .passengers,
+    .links,
+    .submit {
+      width: auto;
+      min-width: 100%;
+    }
+  }
+}
+
 //.nav-tabs
 .nav-tabs {
   border-bottom: 0;
@@ -116,12 +164,14 @@
       color: white;
       background-color: rgba(51, 51, 51, 0.9);
     }
+
     img {
       margin-right: 10px;
     }
   }
 }
-@media only screen and (max-width: 767px) {
+
+@media only screen and (max-width: 736px) {
   nav {
     flex-direction: column;
   }
@@ -162,6 +212,7 @@
   .MuiAutocomplete-input:first-child {
   padding: 0 !important;
 }
+
 .MuiAutocomplete-input {
   max-width: 80px !important;
   white-space: nowrap;
@@ -169,14 +220,17 @@
   display: inline-block;
   text-overflow: ellipsis;
 }
+
 .list-item-value {
   max-width: 80px !important;
   margin-right: 20px;
 }
+
 .MuiAutocomplete-inputRoot .MuiAutocomplete-input {
   width: 80px !important;
   min-width: 80px !important;
 }
+
 .list-item-brief {
   padding: 1px 3px;
   font-size: 0.7em;
@@ -276,6 +330,7 @@
     z-index: 3;
   }
 }
+
 //List-Advanced
 .list-advanced {
   ul {
@@ -286,11 +341,14 @@
     margin-inline-end: 0;
     padding-inline-start: 0;
     margin-bottom: 0;
+    flex-wrap: wrap;
+
     li {
       font-size: 15px;
       font-weight: $fontWeightRegular;
       color: $color66;
       margin-right: 20px;
+
       &:after {
         content: "";
         margin-left: 5px;
@@ -305,13 +363,10 @@
     }
   }
 }
-@media only screen and (max-width: 767px) {
-  .list-advanced {
-    ul {
-      flex-direction: column;
-    }
-  }
+
+@media only screen and (max-width: 736px) {
 }
+
 //DateRangePicker
 .CalendarDay__selected,
 .CalendarDay__selected:active,
@@ -319,36 +374,45 @@
   background: $Red;
   border: 1px double $Red;
 }
+
 .CalendarDay__selected_span {
   background: #f8d6d6;
   border: 1px double #f8d6d6;
   color: $DimGrey;
 }
+
 .DayPickerKeyboardShortcuts_show__bottomRight::before {
   border-right: 33px solid $Red;
 }
+
 .CalendarDay__hovered_span,
 .CalendarDay__hovered_span:hover {
   background: #f8d6d6;
   border: 1px double #f8d6d6;
   color: $DimGrey;
 }
+
 .DateRangePicker {
   width: 100%;
+
   td {
     padding: 5px 10px;
   }
 }
+
 //.DateRangePickerInput
 .DateRangePickerInput__withBorder {
   border-radius: 0;
 }
+
 .DateInput {
   width: 100%;
 }
+
 .DateRangePicker_picker {
   z-index: 5;
 }
+
 .DateRangePickerInput {
   display: inline-flex;
   justify-content: center;
@@ -356,35 +420,42 @@
   width: 100%;
   border: 0;
 }
+
 .DateInput_input {
   height: 58px;
   font-size: 16px;
   font-weight: $fontWeightRegular;
   color: $DimGrey;
 }
+
 .DateInput_input__focused {
   border: 1px solid $DimGrey;
   border-right: dotted 1px $DimGrey;
 }
+
 .DateRangePickerInput_arrow {
   display: none;
 }
+
 .DateRangePickerInput {
   div:first-of-type {
     input {
       border: 1px solid $border;
       border-right: 0;
+
       &:focus {
         border: 1px solid $DimGrey;
         border-right: dotted 1px $DimGrey;
       }
     }
   }
+
   div:last-of-type {
     input {
       border: 1px solid $border;
       border-left: 1px dotted $border;
       padding-left: 30px;
+
       &:focus {
         border: 1px solid $DimGrey;
         border-left: dotted 1px $DimGrey;
@@ -392,15 +463,18 @@
     }
   }
 }
+
 .DateInput__disabled {
   background: white;
   color: #333333;
 }
+
 .DateInput_input__disabled {
   background: white;
   font-style: initial;
   opacity: 0.2;
 }
+
 .start-date {
   position: absolute;
   top: 18px;
@@ -410,6 +484,7 @@
   font-weight: $fontWeightRegular;
   color: $color66;
 }
+
 .end-date {
   position: absolute;
   top: 18px;
