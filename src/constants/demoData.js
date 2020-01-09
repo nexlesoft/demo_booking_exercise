@@ -1,1 +1,0 @@
-export const DeepLink = "https://www.swiss.com/us/en/Book/<flight_type>/<origin>-<destination>/from-<departure_date>/adults-<adult_amount>/children-<children_amount>/infants-<infants_amount>/class-<flight_class>/al-LX/sidmbvl";

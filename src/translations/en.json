@@ -10,5 +10,7 @@
   "home.hotel": "Hotel",
   "home.rental_car": "Rental car",
   "home.swiss_choice": "SWISS Choice",
-  "home.search": "Search"
+  "home.search": "Search",
+  "notfound.header": "Page Not Found",
+  "notfound.go_back_to_home": "Back to Home page"
 }

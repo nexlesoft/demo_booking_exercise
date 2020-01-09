@@ -1,7 +1,7 @@
 import React from "react";
 import { mount  } from "enzyme";
 import LocationSelect from "./LocationSelect";
-import { MockAutocompleteOptions } from "../../../utils/mockData";
+import { MockAutocompleteOptions } from "../../../constants/mockData";
 
 function renderLocationSelect(args) {
   const defaultProps = {

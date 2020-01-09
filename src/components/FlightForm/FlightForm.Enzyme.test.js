@@ -4,7 +4,7 @@ import { IntlProvider } from "react-intl";
 import { messages_en } from "../../translations";
 import FlightForm from "./FlightForm";
 import { FlightType } from '../../constants/common';
-import { MockFlightFormState } from "../../utils/mockData";
+import { MockFlightFormState } from "../../constants/mockData";
 
 function renderFlightForm(args) {
   const defaultProps = {
