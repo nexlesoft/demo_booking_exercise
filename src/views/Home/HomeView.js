@@ -98,7 +98,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
         </Col>
         <Col sm={12}>
           <Tab.Content>
-            <Nav.Link eventKey="flight">
+            <Nav.Link eventKey="flight" className={"active"}>
               <img src={require("../../images/ic-flight.png")} alt="flight" />
               <span>
                 <FormattedMessage id="home.flight" />
