@@ -8,7 +8,7 @@ import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import { FormattedMessage } from "react-intl";
 import locationService from "../../services/locationService";
-
+import "./index.scss";
 // components
 import FlightForm from "../../components/FlightForm";
 
@@ -47,70 +47,17 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
 
   return (
     <Tab.Container id="booking-tabs" defaultActiveKey="flight">
-      <Row>
-        <Col sm={12}>
-          <Nav variant="pills" className="flex-row">
-            <Nav.Item>
-              <Nav.Link eventKey="flight">
-                <img src={require("../../images/ic-flight.png")} alt="flight" />
-                <span>
-                  <FormattedMessage id="home.flight" />
-                </span>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link>
-                <img
-                  src={require("../../images/ic-stopover.png")}
-                  alt="Stopover"
-                />
-                <span>
-                  <FormattedMessage id="home.stopover" />
-                </span>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link>
-                <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
-                <span>
-                  <FormattedMessage id="home.hotel" />
-                </span>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link>
-                <img src={require("../../images/ic-rental.png")} alt="Rental" />
-                <span>
-                  <FormattedMessage id="home.rental_car" />
-                </span>
-              </Nav.Link>
-            </Nav.Item>
-            <Nav.Item>
-              <Nav.Link>
-                <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
-                <span>
-                  <FormattedMessage id="home.swiss_choice" />
-                </span>
-              </Nav.Link>
-            </Nav.Item>
-          </Nav>
-        </Col>
-        <Col sm={12}>
-          <Tab.Content>
-            <Nav.Link eventKey="flight" className="active">
+      <div class="booking-bar">
+        <Nav variant="pills">
+          <Nav.Item>
+            <Nav.Link eventKey="flight">
               <img src={require("../../images/ic-flight.png")} alt="flight" />
               <span>
                 <FormattedMessage id="home.flight" />
               </span>
             </Nav.Link>
-            <Tab.Pane eventKey="flight">
-              <FlightForm
-                autocompleteOptions={autocompleteOptions}
-                onFlightFormChange={onFlightFormChange}
-                flightFormState={flightFormState}
-                openDeepLink={openDeepLink}
-              />
-            </Tab.Pane>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link>
               <img
                 src={require("../../images/ic-stopover.png")}
@@ -120,31 +67,77 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
                 <FormattedMessage id="home.stopover" />
               </span>
             </Nav.Link>
-            <Tab.Pane eventKey="stopover"></Tab.Pane>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link>
               <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
               <span>
                 <FormattedMessage id="home.hotel" />
               </span>
             </Nav.Link>
-            <Tab.Pane eventKey="hotel"></Tab.Pane>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link>
               <img src={require("../../images/ic-rental.png")} alt="Rental" />
               <span>
                 <FormattedMessage id="home.rental_car" />
               </span>
             </Nav.Link>
-            <Tab.Pane eventKey="rental_car"></Tab.Pane>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link>
               <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
               <span>
                 <FormattedMessage id="home.swiss_choice" />
               </span>
             </Nav.Link>
-            <Tab.Pane eventKey="swiss_choice"></Tab.Pane>
-          </Tab.Content>
-        </Col>
-      </Row>
+          </Nav.Item>
+        </Nav>
+        <Tab.Content>
+          <Nav.Link eventKey="flight" className="active">
+            <img src={require("../../images/ic-flight.png")} alt="flight" />
+            <span>
+              <FormattedMessage id="home.flight" />
+            </span>
+          </Nav.Link>
+          <Tab.Pane eventKey="flight">
+            <FlightForm
+              autocompleteOptions={autocompleteOptions}
+              onFlightFormChange={onFlightFormChange}
+              flightFormState={flightFormState}
+              openDeepLink={openDeepLink}
+            />
+          </Tab.Pane>
+          <Nav.Link>
+            <img src={require("../../images/ic-stopover.png")} alt="Stopover" />
+            <span>
+              <FormattedMessage id="home.stopover" />
+            </span>
+          </Nav.Link>
+          <Tab.Pane eventKey="stopover"></Tab.Pane>
+          <Nav.Link>
+            <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
+            <span>
+              <FormattedMessage id="home.hotel" />
+            </span>
+          </Nav.Link>
+          <Tab.Pane eventKey="hotel"></Tab.Pane>
+          <Nav.Link>
+            <img src={require("../../images/ic-rental.png")} alt="Rental" />
+            <span>
+              <FormattedMessage id="home.rental_car" />
+            </span>
+          </Nav.Link>
+          <Tab.Pane eventKey="rental_car"></Tab.Pane>
+          <Nav.Link>
+            <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
+            <span>
+              <FormattedMessage id="home.swiss_choice" />
+            </span>
+          </Nav.Link>
+          <Tab.Pane eventKey="swiss_choice"></Tab.Pane>
+        </Tab.Content>
+      </div>
     </Tab.Container>
   );
 };

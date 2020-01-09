@@ -216,28 +216,6 @@ input.large {
   width: 1px !important;
 }
 
-//search-box
-.search-box {
-  background-color: white;
-  border: solid 1px #d8d8d8;
-  margin: 20px auto;
-  max-width: 1200px;
-  //min-width: 768px;
-}
-@media only screen and (max-width: 767px) {
-  .search-box {
-    max-width: 767px;
-    min-width: 0;
-    margin: 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 1200px !important;
-  }
-}
-
 .nav-pills,
 .tab-content {
   border-bottom: 0;
