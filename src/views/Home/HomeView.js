@@ -59,7 +59,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="stopover">
+              <Nav.Link>
                 <img
                   src={require("../../images/ic-stopover.png")}
                   alt="Stopover"
@@ -70,7 +70,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="hotel">
+              <Nav.Link>
                 <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
                 <span>
                   <FormattedMessage id="home.hotel" />
@@ -78,7 +78,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="rental_car">
+              <Nav.Link>
                 <img src={require("../../images/ic-rental.png")} alt="Rental" />
                 <span>
                   <FormattedMessage id="home.rental_car" />
@@ -86,7 +86,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
               </Nav.Link>
             </Nav.Item>
             <Nav.Item>
-              <Nav.Link eventKey="swiss_choice">
+              <Nav.Link>
                 <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
                 <span>
                   <FormattedMessage id="home.swiss_choice" />
@@ -97,7 +97,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
         </Col>
         <Col sm={12}>
           <Tab.Content>
-            <Nav.Link eventKey="flight" className={"active"}>
+            <Nav.Link eventKey="flight" className="active">
               <img src={require("../../images/ic-flight.png")} alt="flight" />
               <span>
                 <FormattedMessage id="home.flight" />
@@ -111,7 +111,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
                 openDeepLink={openDeepLink}
               />
             </Tab.Pane>
-            <Nav.Link eventKey="stopover">
+            <Nav.Link>
               <img
                 src={require("../../images/ic-stopover.png")}
                 alt="Stopover"
@@ -121,21 +121,21 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
               </span>
             </Nav.Link>
             <Tab.Pane eventKey="stopover"></Tab.Pane>
-            <Nav.Link eventKey="hotel">
+            <Nav.Link>
               <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
               <span>
                 <FormattedMessage id="home.hotel" />
               </span>
             </Nav.Link>
             <Tab.Pane eventKey="hotel"></Tab.Pane>
-            <Nav.Link eventKey="rental_car">
+            <Nav.Link>
               <img src={require("../../images/ic-rental.png")} alt="Rental" />
               <span>
                 <FormattedMessage id="home.rental_car" />
               </span>
             </Nav.Link>
             <Tab.Pane eventKey="rental_car"></Tab.Pane>
-            <Nav.Link eventKey="swiss_choice">
+            <Nav.Link>
               <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
               <span>
                 <FormattedMessage id="home.swiss_choice" />

@@ -1,11 +1,11 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/destructuring-assignment */
 import React from "react";
 import PropTypes from "prop-types";
 import { DateRangePicker } from "react-dates";
 import { START_DATE, END_DATE } from "react-dates/lib/constants";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import { FormattedMessage } from "react-intl";
 import LocationSelect from "../common/LocationSelect";
 import FlightTypeToggle from "../common/FlightTypeToggle";
@@ -55,14 +55,14 @@ class FlightForm extends React.Component {
         switch (this.state.focusedInput) {
           case START_DATE:
             this.startDate.classList.add(ANIMATION_FOR_LABEL);
-            let startDateElm = document.getElementById(START_DATE_ID);
+            const startDateElm = document.getElementById(START_DATE_ID);
             startDateElm.focus();
 
             this.onBlurDate(END_DATE);
             break;
           case END_DATE:
             this.returnDate.classList.add(ANIMATION_FOR_LABEL);
-            let endDateElm = document.getElementById(END_DATE_ID);
+            const endDateElm = document.getElementById(END_DATE_ID);
             endDateElm.focus();
             this.onBlurDate(START_DATE);
             break;
@@ -75,12 +75,14 @@ class FlightForm extends React.Component {
 
   onBlurDate = focusInput => {
     if (focusInput === START_DATE && this.startDate) {
-      if (this.state.startDate === null) {
+      const startDateInputValue = document.getElementById("startId").value;
+      if (this.state.startDate === null && !startDateInputValue) {
         this.startDate.classList.remove(ANIMATION_FOR_LABEL);
       }
     }
     if (focusInput === END_DATE && this.returnDate) {
-      if (this.state.endDate === null) {
+      const endDateInputValue = document.getElementById("endId").value;
+      if (this.state.endDate === null && !endDateInputValue) {
         this.returnDate.classList.remove(ANIMATION_FOR_LABEL);
       }
     }
@@ -136,7 +138,7 @@ class FlightForm extends React.Component {
               {startDateLabel}
             </div>
             <div
-              onClick={() => this.onForcusDate(END_DATE)}
+              onClick={() => isOutBound && this.onForcusDate(END_DATE)}
               ref={elm => (this.returnDate = elm)}
               className="lbl-formControl right"
             >
@@ -150,7 +152,11 @@ class FlightForm extends React.Component {
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={({ startDate, endDate }) => {
-                onFlightFormChange("departureDate", startDate);
+                let departureDate = startDate;
+                if (startDate) {
+                  departureDate = startDate.format("LL");
+                  onFlightFormChange("departureDate", departureDate);
+                }
                 this.setState({ startDate, endDate }, () => {
                   this.onBlurDate();
                 });
