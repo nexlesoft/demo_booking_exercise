@@ -15,6 +15,7 @@ function LocationSelect(props) {
       {...props}
       autoHighlight
       includeInputInList
+      disableOpenOnFocus
       getOptionLabel={option => option.value}
       renderOption={option => (
         <>

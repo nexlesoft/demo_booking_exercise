@@ -4,6 +4,9 @@ import moment from "moment";
 // bootstrap components
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Nav from "react-bootstrap/Nav";
 import { FormattedMessage } from "react-intl";
 import locationService from "../../services/locationService";
 
@@ -31,7 +34,8 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
       infantsAmount,
       flightClass
     } = flightFormState;
-    const deepLink = urls.home.booking.replace("<flight_type>", flightType)
+    const deepLink = urls.home.booking
+      .replace("<flight_type>", flightType)
       .replace("<origin>", origin)
       .replace("<destination>", destination)
       .replace("<departure_date>", moment(departureDate).format("YYYY-MM-DD"))
@@ -43,64 +47,106 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
   }
 
   return (
-    <Tabs defaultActiveKey="flight" id="book-mask-tabs">
-      <Tab
-        eventKey="flight"
-        title={(
-<>
-            <img src={require("../../images/ic-flight.png")} alt="flight" />
-            <span><FormattedMessage id="home.flight" /></span>
-          </>
-)}
-      >
-        <FlightForm
-          autocompleteOptions={autocompleteOptions}
-          onFlightFormChange={onFlightFormChange}
-          flightFormState={flightFormState}
-          openDeepLink={openDeepLink}
-        />
-      </Tab>
-      <Tab
-        disabled
-        eventKey="Stopover"
-        title={(
-<>
-            <img src={require("../../images/ic-stopover.png")} alt="Stopover" />
-            <span><FormattedMessage id="home.stopover" /></span>
-          </>
-)}
-      />
-      <Tab
-        disabled
-        eventKey="Hotel"
-        title={(
-<>
-            <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
-            <span><FormattedMessage id="home.hotel" /></span>
-          </>
-)}
-      />
-      <Tab
-        disabled
-        eventKey="Rental"
-        title={(
-<>
-            <img src={require("../../images/ic-rental.png")} alt="Rental" />
-            <span><FormattedMessage id="home.rental_car" /></span>
-          </>
-)}
-      />
-      <Tab
-        disabled
-        eventKey="SWISS"
-        title={(
-<>
-            <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
-            <span><FormattedMessage id="home.swiss_choice" /></span>
-          </>
-)}
-      />
-    </Tabs>
+    <Tab.Container id="booking-tabs" defaultActiveKey="flight">
+      <Row>
+        <Col sm={12}>
+          <Nav variant="pills" className="flex-column">
+            <Nav.Item>
+              <Nav.Link eventKey="flight">
+                <img src={require("../../images/ic-flight.png")} alt="flight" />
+                <span>
+                  <FormattedMessage id="home.flight" />
+                </span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="stopover">
+                <img
+                  src={require("../../images/ic-stopover.png")}
+                  alt="Stopover"
+                />
+                <span>
+                  <FormattedMessage id="home.stopover" />
+                </span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="hotel">
+                <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
+                <span>
+                  <FormattedMessage id="home.hotel" />
+                </span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="rental_car">
+                <img src={require("../../images/ic-rental.png")} alt="Rental" />
+                <span>
+                  <FormattedMessage id="home.rental_car" />
+                </span>
+              </Nav.Link>
+            </Nav.Item>
+            <Nav.Item>
+              <Nav.Link eventKey="swiss_choice">
+                <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
+                <span>
+                  <FormattedMessage id="home.swiss_choice" />
+                </span>
+              </Nav.Link>
+            </Nav.Item>
+          </Nav>
+        </Col>
+        <Col sm={12}>
+          <Tab.Content>
+            <Nav.Link eventKey="flight">
+              <img src={require("../../images/ic-flight.png")} alt="flight" />
+              <span>
+                <FormattedMessage id="home.flight" />
+              </span>
+            </Nav.Link>
+            <Tab.Pane eventKey="flight">
+              <FlightForm
+                autocompleteOptions={autocompleteOptions}
+                onFlightFormChange={onFlightFormChange}
+                flightFormState={flightFormState}
+                openDeepLink={openDeepLink}
+              />
+            </Tab.Pane>
+            <Nav.Link eventKey="stopover">
+              <img
+                src={require("../../images/ic-stopover.png")}
+                alt="Stopover"
+              />
+              <span>
+                <FormattedMessage id="home.stopover" />
+              </span>
+            </Nav.Link>
+            <Tab.Pane eventKey="stopover"></Tab.Pane>
+            <Nav.Link eventKey="hotel">
+              <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
+              <span>
+                <FormattedMessage id="home.hotel" />
+              </span>
+            </Nav.Link>
+            <Tab.Pane eventKey="hotel"></Tab.Pane>
+            <Nav.Link eventKey="rental_car">
+              <img src={require("../../images/ic-rental.png")} alt="Rental" />
+              <span>
+                <FormattedMessage id="home.rental_car" />
+              </span>
+            </Nav.Link>
+            <Tab.Pane eventKey="rental_car"></Tab.Pane>
+            <Nav.Link eventKey="swiss_choice">
+              <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
+              <span>
+                <FormattedMessage id="home.swiss_choice" />
+              </span>
+            </Nav.Link>
+            <Tab.Pane eventKey="swiss_choice"></Tab.Pane>
+          </Tab.Content>
+        </Col>
+      </Row>
+    </Tab.Container>
   );
 };
 
