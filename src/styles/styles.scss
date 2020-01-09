@@ -238,7 +238,8 @@ input.large {
   }
 }
 
-.nav-pills, .tab-content {
+.nav-pills,
+.tab-content {
   border-bottom: 0;
   width: 100%;
 
@@ -272,26 +273,29 @@ input.large {
     }
   }
 }
+//nav-pills
+.nav-pills {
+  display: flex;
+}
 
-@media (min-width: 768px) {
-  .nav-pills {
-    display: flex;
-  }
-
-  .tab-content {
-    .nav-link {
-      display: none;
-    }
+.tab-content {
+  .nav-link {
+    display: none;
   }
 }
 
-@media (max-width: 767px) {
+@media (max-width: 736px) {
   .nav-pills {
     display: none;
   }
   .tab-content {
     .nav-link {
       display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-bottom: 2px;
+      padding: 15px;
+      margin-left: 0;
     }
   }
 }
