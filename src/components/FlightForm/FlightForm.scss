@@ -426,6 +426,7 @@
   font-size: 16px;
   font-weight: $fontWeightRegular;
   color: $DimGrey;
+  padding-top: 17px;
 }
 
 .DateInput_input__focused {
@@ -475,22 +476,29 @@
   opacity: 0.2;
 }
 
-.start-date {
+.lbl-formControl {
   position: absolute;
-  top: 18px;
-  left: 25px;
-  z-index: 1;
-  font-size: 16px;
-  font-weight: $fontWeightRegular;
-  color: $color66;
+  top: 20%;
+  z-index: 2;
+  color: #666;
+  font-size: 1rem;
+  font-weight: 400;
+
+  &.left {
+    left: 22px;
+  }
+
+  &.right {
+    left: calc(100% / 2 + 10px + 21px);
+  }
 }
 
-.end-date {
-  position: absolute;
-  top: 18px;
-  left: 210px;
-  z-index: 1;
-  font-size: 16px;
-  font-weight: $fontWeightRegular;
-  color: $color66;
+.lbl-animated {
+  transform-origin: top left;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
+    transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  transform: translate(0, 1.5px) scale(0.75);
+  font-size: 14px;
+  left: 12px;
+  top: 6px;
 }

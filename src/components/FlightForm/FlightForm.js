@@ -2,6 +2,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { DateRangePicker } from "react-dates";
+import { START_DATE, END_DATE } from "react-dates/lib/constants";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import { FormattedMessage } from "react-intl";
@@ -17,6 +19,10 @@ import "./FlightForm.scss";
 
 const flightIcon = require("../../images/flight.png");
 
+const ANIMATION_FOR_LABEL = "lbl-animated";
+const START_DATE_ID = "startId";
+const END_DATE_ID = "endId";
+
 class FlightForm extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +31,9 @@ class FlightForm extends React.Component {
       endDate: null,
       focusedInput: null
     };
+
+    this.startDate = React.createRef();
+    this.returnDate = React.createRef();
   }
 
   onFlightTypeChange = flightType => {
@@ -33,6 +42,48 @@ class FlightForm extends React.Component {
       "flightType",
       flightType === FlightType.Flight ? FlightType.Outbound : FlightType.Flight
     );
+  };
+
+  onForcusDate = focusInput => {
+    const prevFocused = this.state.focusedInput;
+
+    this.setState(
+      {
+        focusedInput: focusInput
+      },
+      () => {
+        switch (this.state.focusedInput) {
+          case START_DATE:
+            this.startDate.classList.add(ANIMATION_FOR_LABEL);
+            let startDateElm = document.getElementById(START_DATE_ID);
+            startDateElm.focus();
+
+            this.onBlurDate(END_DATE);
+            break;
+          case END_DATE:
+            this.returnDate.classList.add(ANIMATION_FOR_LABEL);
+            let endDateElm = document.getElementById(END_DATE_ID);
+            endDateElm.focus();
+            this.onBlurDate(START_DATE);
+            break;
+          default:
+            this.onBlurDate(prevFocused);
+        }
+      }
+    );
+  };
+
+  onBlurDate = focusInput => {
+    if (focusInput === START_DATE && this.startDate) {
+      if (this.state.startDate === null) {
+        this.startDate.classList.remove(ANIMATION_FOR_LABEL);
+      }
+    }
+    if (focusInput === END_DATE && this.returnDate) {
+      if (this.state.endDate === null) {
+        this.returnDate.classList.remove(ANIMATION_FOR_LABEL);
+      }
+    }
   };
 
   render() {
@@ -77,22 +128,39 @@ class FlightForm extends React.Component {
             />
           </div>
           <div className="dates">
+            <div
+              onClick={() => this.onForcusDate(START_DATE)}
+              ref={elm => (this.startDate = elm)}
+              className="lbl-formControl left"
+            >
+              {startDateLabel}
+            </div>
+            <div
+              onClick={() => this.onForcusDate(END_DATE)}
+              ref={elm => (this.returnDate = elm)}
+              className="lbl-formControl right"
+            >
+              Return flight
+            </div>
+
             <DateRangePicker
-              startDateId="startDate"
-              endDateId="endDate"
+              startDateId={START_DATE_ID}
+              endDateId={END_DATE_ID}
               disabled={!isOutBound && "endDate"}
               startDate={this.state.startDate}
               endDate={this.state.endDate}
               onDatesChange={({ startDate, endDate }) => {
                 onFlightFormChange("departureDate", startDate);
-                this.setState({ startDate, endDate });
+                this.setState({ startDate, endDate }, () => {
+                  this.onBlurDate();
+                });
               }}
               focusedInput={this.state.focusedInput}
               onFocusChange={focusedInput => {
-                this.setState({ focusedInput });
+                this.onForcusDate(focusedInput);
               }}
-              startDatePlaceholderText={startDateLabel}
-              endDatePlaceholderText="Return flight"
+              startDatePlaceholderText=""
+              endDatePlaceholderText=""
               required
             />
             <FlightTypeToggle
