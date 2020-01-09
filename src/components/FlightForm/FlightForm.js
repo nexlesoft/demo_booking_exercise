@@ -51,94 +51,91 @@ class FlightForm extends React.Component {
     const startDateLabel = isOutBound ? "Outbound flight" : "One-way";
 
     return (
-      <Container className="flight-wrapper">
+      <div className="flight-wrapper">
         <form onSubmit={() => openDeepLink()}>
-          <Row>
-            <div className="column1 fl-input">
-              <LocationSelect
-                className="fl-input__autocomplete fl-input__autocomplete_from"
-                options={autocompleteOptions}
-                tflabel="From"
-                onChange={(event, value) =>
-                  onFlightFormChange("origin", value && value.brief)
-                }
-                required
-              />
-              <div className="fight-icon">
-                <img src={flightIcon} alt="flight" />
-              </div>
-              <LocationSelect
-                className="fl-input__autocomplete fl-input__autocomplete_to"
-                options={autocompleteOptions}
-                tflabel="To"
-                onChange={(event, value) =>
-                  onFlightFormChange("destination", value && value.brief)
-                }
-                required
-              />
+          <div className="locations fl-input">
+            <LocationSelect
+              className="fl-input__autocomplete fl-input__autocomplete_from"
+              options={autocompleteOptions}
+              tflabel="From"
+              onChange={(event, value) =>
+                onFlightFormChange("origin", value && value.brief)
+              }
+              required
+            />
+            <div className="fight-icon">
+              <img src={flightIcon} alt="flight" />
             </div>
-            <div className="column2">
-              <DateRangePicker
-                startDateId="startDate"
-                endDateId="endDate"
-                disabled={!isOutBound && "endDate"}
-                startDate={this.state.startDate}
-                endDate={this.state.endDate}
-                onDatesChange={({ startDate, endDate }) => {
-                  onFlightFormChange("departureDate", startDate);
-                  this.setState({ startDate, endDate });
-                }}
-                focusedInput={this.state.focusedInput}
-                onFocusChange={focusedInput => {
-                  this.setState({ focusedInput });
-                }}
-                startDatePlaceholderText={startDateLabel}
-                endDatePlaceholderText="Return flight"
-                required
-              />
-              <FlightTypeToggle
-                propId="outboun"
-                checked={isOutBound}
-                onChange={() => this.onFlightTypeChange(flightType)}
-              />
-            </div>
-            <div className="column3">
-              <PassengerSelect
-                amounts={{ adultAmount, childrenAmount, infantsAmount }}
-                onChange={(fieldName, value) =>
-                  onFlightFormChange(fieldName, value)
-                }
-              />
-            </div>
-          </Row>
-          <Row className="center-flex">
-            <div className="column4 list-advanced">
-              <ul>
-                <li>
-                  <FormattedMessage id="home.advanced_search" />
-                </li>
-                <li>
-                  <FormattedMessage id="home.arrivals_and_departures" />
-                </li>
-                <li>
-                  <FormattedMessage id="home.inspire_me" />
-                </li>
-                <li>
-                  <FormattedMessage id="home.miles_more" />
-                </li>
-                <li>
-                  <FormattedMessage id="home.Check_in" />
-                </li>
-              </ul>
-            </div>
-            <div className="column3">
-              <button type="submit" className="flight-wrapper--button">
-                <FormattedMessage id="home.search" />
-              </button>
-            </div>
-          </Row>
+            <LocationSelect
+              className="fl-input__autocomplete fl-input__autocomplete_to"
+              options={autocompleteOptions}
+              tflabel="To"
+              onChange={(event, value) =>
+                onFlightFormChange("destination", value && value.brief)
+              }
+              required
+            />
+          </div>
+          <div className="dates">
+            <DateRangePicker
+              startDateId="startDate"
+              endDateId="endDate"
+              disabled={!isOutBound && "endDate"}
+              startDate={this.state.startDate}
+              endDate={this.state.endDate}
+              onDatesChange={({ startDate, endDate }) => {
+                onFlightFormChange("departureDate", startDate);
+                this.setState({ startDate, endDate });
+              }}
+              focusedInput={this.state.focusedInput}
+              onFocusChange={focusedInput => {
+                this.setState({ focusedInput });
+              }}
+              startDatePlaceholderText={startDateLabel}
+              endDatePlaceholderText="Return flight"
+              required
+            />
+            <FlightTypeToggle
+              propId="outboun"
+              checked={isOutBound}
+              onChange={() => this.onFlightTypeChange(flightType)}
+            />
+          </div>
+          <div className="passengers">
+            <PassengerSelect
+              amounts={{ adultAmount, childrenAmount, infantsAmount }}
+              onChange={(fieldName, value) =>
+                onFlightFormChange(fieldName, value)
+              }
+            />
+          </div>
+          <div className="submit">
+            <button type="submit" className="flight-wrapper--button">
+              <FormattedMessage id="home.search" />
+            </button>
+          </div>
+
+          <div className="links list-advanced">
+            <ul>
+              <li>
+                <FormattedMessage id="home.advanced_search" />
+              </li>
+              <li>
+                <FormattedMessage id="home.arrivals_and_departures" />
+              </li>
+              <li>
+                <FormattedMessage id="home.inspire_me" />
+              </li>
+              <li>
+                <FormattedMessage id="home.miles_more" />
+              </li>
+              <li>
+                <FormattedMessage id="home.Check_in" />
+              </li>
+            </ul>
+          </div>
         </form>
-      </Container>
+      </div>
     );
   }
 }
