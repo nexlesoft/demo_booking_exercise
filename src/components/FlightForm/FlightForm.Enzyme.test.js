@@ -27,7 +27,7 @@ it("Flight Form has all required fields: LocationSelect, DateRangePicker, Toggle
   //   console.log(wrapper.debug());
   expect(wrapper.find("LocationSelect").length).toBe(2);
   expect(wrapper.find("DateRangePicker").length).toBe(1);
-  expect(wrapper.find("Toggle").length).toBe(1);
+  expect(wrapper.find("FlightTypeToggle").length).toBe(1);
   expect(wrapper.find("PassengerSelect").length).toBe(1);
   expect(wrapper.find("form").length).toBe(1);
 });
@@ -39,9 +39,9 @@ it("Check advanced search have 5 options", () => {
 
 it("FlightType is read from prop properly", () => {
   const wrapper = renderFlightForm({ autocompleteOptions: [], flightFormState: { flightType: FlightType.Flight } });
-  expect(wrapper.find(".DateInput_input").first().prop('placeholder')).toEqual("One-way");
+  expect(wrapper.find(".dates").children(".left").text()).toEqual("One-way");
 
   const wrapper2 = renderFlightForm({ autocompleteOptions: [], flightFormState: { flightType: FlightType.Outbound } });
-  expect(wrapper2.find(".DateInput_input").first().prop('placeholder')).toEqual("Outbound flight");
+  expect(wrapper2.find(".dates").children('.left').text()).toEqual("Outbound flight");
 });
 
