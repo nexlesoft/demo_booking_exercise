@@ -479,7 +479,18 @@
   font-style: initial;
   opacity: 0.2;
 }
-
+.CalendarDay__selected_span:active,
+.CalendarDay__selected_span:hover {
+  background: #333333;
+  border: 1px double #333333;
+  color: #fff;
+}
+.DayPickerNavigation_button__default {
+  border: 0 !important;
+  background-color: #fff;
+  color: #757575;
+}
+//
 .lbl-formControl {
   position: absolute;
   top: 20%;
