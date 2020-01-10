@@ -14,5 +14,9 @@ export default {
   },
   loading: {
     loading: false
+  },
+  overlay: {
+    overlay: false,
+    comp: ""
   }
 };

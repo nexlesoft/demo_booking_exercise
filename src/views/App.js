@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import { Route, Switch } from "react-router-dom";
 import React from "react";
 import { IntlProvider } from "react-intl";
@@ -24,6 +25,7 @@ class App extends React.PureComponent {
         messages={messages[language]}
       >
         <>
+          {this.props.overlay && <div className="booking-form-overlay" />}
           <Loading loading={this.props.loading} />
           <Switch>
             <Route exact path="/" component={HomePage} />
@@ -38,7 +40,8 @@ class App extends React.PureComponent {
 const mapStateToProps = state => {
   return {
     locale: state.localeReducer.locale,
-    loading: state.loadingReducer.loading
+    loading: state.loadingReducer.loading,
+    overlay: state.overlayReducer.overlay
   };
 };
 

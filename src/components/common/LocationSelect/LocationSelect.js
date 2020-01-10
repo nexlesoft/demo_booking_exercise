@@ -9,7 +9,16 @@ import TextField from "@material-ui/core/TextField";
 import "./LocationSelect.scss";
 
 function LocationSelect(props) {
-  const { tflabel, required, options } = props;
+  const { tflabel, required, options, onFocus, onBlur } = props;
+
+  function _onFocus() {
+    onFocus();
+  }
+
+  function _onBlur() {
+    onBlur();
+  }
+
   return (
     <Autocomplete
       {...props}
@@ -49,6 +58,8 @@ function LocationSelect(props) {
               label={tflabel}
               fullWidth
               required={required}
+              onFocus={() => _onFocus}
+              onBlur={() => _onBlur}
             />
             {valueWithAbbr}
           </>
@@ -61,13 +72,17 @@ function LocationSelect(props) {
 LocationSelect.propTypes = {
   tflabel: PropTypes.string,
   required: PropTypes.bool,
-  options: PropTypes.array
+  options: PropTypes.array,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func
 };
 
 LocationSelect.defaultProps = {
   tflabel: "",
   required: false,
-  options: []
+  options: [],
+  onFocus: () => {},
+  onBlur: () => {}
 };
 
 export default LocationSelect;

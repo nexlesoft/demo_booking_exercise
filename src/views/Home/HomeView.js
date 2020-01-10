@@ -3,18 +3,16 @@ import PropTypes from "prop-types";
 import moment from "moment";
 // bootstrap components
 import Tab from "react-bootstrap/Tab";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import { FormattedMessage } from "react-intl";
 import locationService from "../../services/locationService";
-import "./index.scss";
 // components
 import FlightForm from "../../components/FlightForm";
 
 import urls from "../../api/urls";
+import './index.scss';
 
-const HomeView = ({ flightFormState, onFlightFormChange }) => {
+const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverlay, overlay }) => {
   const [autocompleteOptions, setAutocompleteOptions] = useState([]);
   useEffect(() => {
     locationService.autocompleteOptions().then(res => {
@@ -31,7 +29,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
       adultAmount,
       childrenAmount,
       infantsAmount,
-      flightClass
+      flightClass,
     } = flightFormState;
     const deepLink = urls.home.booking
       .replace("<flight_type>", flightType)
@@ -47,7 +45,7 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
 
   return (
     <Tab.Container id="booking-tabs" defaultActiveKey="flight">
-      <div class="booking-bar">
+      <div className="booking-bar">
         <Nav variant="pills">
           <Nav.Item>
             <Nav.Link eventKey="flight">
@@ -106,6 +104,9 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
               onFlightFormChange={onFlightFormChange}
               flightFormState={flightFormState}
               openDeepLink={openDeepLink}
+              onFocus={showOverlay}
+              onBlur={hideOverlay}
+              overlay={overlay}
             />
           </Tab.Pane>
           <Nav.Link>
@@ -144,11 +145,17 @@ const HomeView = ({ flightFormState, onFlightFormChange }) => {
 
 HomeView.propTypes = {
   flightFormState: PropTypes.object,
-  onFlightFormChange: PropTypes.func
+  onFlightFormChange: PropTypes.func,
+  showOverlay: PropTypes.func,
+  hideOverlay: PropTypes.func,
+  overlay: PropTypes.object
 };
 HomeView.defaultProps = {
   flightFormState: {},
-  onFlightFormChange: () => {}
+  onFlightFormChange: () => {},
+  showOverlay: () => {},
+  hideOverlay: () => {},
+  overlay: {}
 };
 
 export default HomeView;

@@ -5,6 +5,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { DateRangePicker } from "react-dates";
 import { START_DATE, END_DATE } from "react-dates/lib/constants";
+import cn from 'classnames';
 
 import { FormattedMessage } from "react-intl";
 import LocationSelect from "../common/LocationSelect";
@@ -16,6 +17,7 @@ import PassengerSelect from "../PassengerSelect";
 import { FlightType } from "../../constants/common";
 
 import "./FlightForm.scss";
+
 
 const flightIcon = require("../../images/flight.png");
 
@@ -46,7 +48,11 @@ class FlightForm extends React.Component {
 
   onForcusDate = focusInput => {
     const prevFocused = this.state.focusedInput;
-
+    if (focusInput) {
+      this.props.onFocus("DateRangePicker");
+    } else {
+      this.props.onBlur("DateRangePicker");
+    }
     this.setState(
       {
         focusedInput: focusInput
@@ -98,15 +104,21 @@ class FlightForm extends React.Component {
         infantsAmount,
         flightType
       },
-      openDeepLink
+      openDeepLink,
+      onFocus,
+      onBlur,
+      overlay
     } = this.props;
     const isOutBound = flightType === FlightType.Outbound;
     const startDateLabel = isOutBound ? "Outbound flight" : "One-way";
+    const isLocationSelectFocus = overlay && overlay.overlay && overlay.comp === "LocationSelect";
+    const isCalendarFocus = overlay && overlay.overlay && overlay.comp === "DateRangePicker";
+    const isPassengersFocus = overlay && overlay.overlay && overlay.comp === "PassengerSelect";
 
     return (
       <div className="flight-wrapper">
         <form onSubmit={() => openDeepLink()}>
-          <div className="locations fl-input">
+          <div className={cn("locations fl-input", isLocationSelectFocus && "comp-focus")}>
             <LocationSelect
               className="fl-input__autocomplete fl-input__autocomplete_from"
               options={autocompleteOptions}
@@ -115,6 +127,8 @@ class FlightForm extends React.Component {
                 onFlightFormChange("origin", value && value.brief)
               }
               required
+              onFocus={() => onFocus("LocationSelect")}
+              onBlur={() => onBlur("LocationSelect")}
             />
             <div className="fight-icon">
               <img src={flightIcon} alt="flight" />
@@ -127,9 +141,11 @@ class FlightForm extends React.Component {
                 onFlightFormChange("destination", value && value.brief)
               }
               required
+              onFocus={() => onFocus("LocationSelect")}
+              onBlur={() => onBlur("LocationSelect")}
             />
           </div>
-          <div className="dates">
+          <div className={cn("dates", isCalendarFocus && "comp-focus")}>
             <div
               onClick={() => this.onForcusDate(START_DATE)}
               ref={elm => (this.startDate = elm)}
@@ -176,12 +192,14 @@ class FlightForm extends React.Component {
               onChange={() => this.onFlightTypeChange(flightType)}
             />
           </div>
-          <div className="passengers">
+          <div className={cn("passengers", isPassengersFocus && "comp-focus")}>
             <PassengerSelect
               amounts={{ adultAmount, childrenAmount, infantsAmount }}
               onChange={(fieldName, value) =>
                 onFlightFormChange(fieldName, value)
               }
+              onFocus={() => onFocus("PassengerSelect")}
+              onBlur={() => onBlur("PassengerSelect")}
             />
           </div>
           <div className="submit">
@@ -219,14 +237,20 @@ FlightForm.propTypes = {
   autocompleteOptions: PropTypes.array,
   onFlightFormChange: PropTypes.func,
   flightFormState: PropTypes.object,
-  openDeepLink: PropTypes.func
+  openDeepLink: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  overlay: PropTypes.object
 };
 
 FlightForm.defaultProps = {
   autocompleteOptions: [],
   onFlightFormChange: () => {},
   flightFormState: {},
-  openDeepLink: () => {}
+  openDeepLink: () => {},
+  onFocus: () => {},
+  onBlur: () => {},
+  overlay: false
 };
 
 export default FlightForm;

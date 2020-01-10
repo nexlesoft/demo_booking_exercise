@@ -4,6 +4,7 @@ import { reducer as toastrReducer } from "react-redux-toastr";
 import flightFormReducer from "./flightFormReducer";
 import localeReducer from "./localeReducer";
 import loadingReducer from "./loadingReducer";
+import overlayReducer from "./overlayReducer";
 
 const rootReducer = history =>
   combineReducers({
@@ -11,7 +12,8 @@ const rootReducer = history =>
     flightFormReducer,
     localeReducer,
     toastr: toastrReducer,
-    loadingReducer
+    loadingReducer,
+    overlayReducer
   });
 
 export default rootReducer;

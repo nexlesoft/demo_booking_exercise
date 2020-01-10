@@ -24,3 +24,21 @@ export function setHeaderText(text) {
     });
   };
 }
+
+export function showOverlay(comp) {
+  return dispatch => {
+    dispatch({
+      type: APP_ACTION_TYPE.SHOW_OVERLAY,
+      comp
+    });
+  };
+}
+
+export function hideOverlay(comp) {
+  return dispatch => {
+    dispatch({
+      type: APP_ACTION_TYPE.HIDE_OVERLAY,
+      comp
+    });
+  };
+}

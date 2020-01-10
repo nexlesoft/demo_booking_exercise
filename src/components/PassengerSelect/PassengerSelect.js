@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import cn from "classnames";
 
@@ -6,16 +6,44 @@ import { PassengerLineItem } from "../common";
 
 import "./PassengerSelect.scss";
 
-function PassengerSelect({ amounts, onChange, className, ...rest }) {
+function PassengerSelect({ amounts, onChange, onFocus, onBlur, className, ...rest }) {
   const { adultAmount, childrenAmount, infantsAmount } = amounts;
   const [dropdown, setDropdown] = useState(false);
+  const wrapperRef = useRef(null);
+
+  function handleClickOutside(event) {
+    if (wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+      setDropdown(false);
+      onBlur();
+    }
+  }
+
+  useEffect(() => {
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  });
+
+  function onSetDropDown(dropdownState) {
+    setDropdown(dropdownState);
+    if (dropdownState) {
+      onFocus();
+    } else {
+      onBlur();
+    }
+  }
+
   return (
-    <div className={cn("passager_number", className)} {...rest}>
+    <div className={cn("passager_number", className)} {...rest} ref={wrapperRef}>
       <fieldset>
         <legend className="is-visuallyhidden">Passengers</legend>
         <div
+          role="button"
           className={cn("passager_number--trigger", dropdown && "down")}
-          onClick={() => setDropdown(!dropdown)}
+          onClick={() => onSetDropDown(!dropdown)}
         >
           <span className="passager_number--trigger--caption">{`${adultAmount} Adult, ${childrenAmount} Children, ${infantsAmount} Infant`}</span>
           <span className="passager_number--trigger--label">{`${adultAmount +
@@ -54,7 +82,7 @@ function PassengerSelect({ amounts, onChange, className, ...rest }) {
             <button
               className="button-close"
               type="button"
-              onClick={() => setDropdown(false)}
+              onClick={() => onSetDropDown(false)}
             >
               Close
             </button>
@@ -67,12 +95,16 @@ function PassengerSelect({ amounts, onChange, className, ...rest }) {
 
 PassengerSelect.propTypes = {
   amounts: PropTypes.object,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func
 };
 
 PassengerSelect.defaultProps = {
   amounts: {},
-  onChange: () => {}
+  onChange: () => {},
+  onFocus: () => {},
+  onBlur: () => {}
 };
 
 export default PassengerSelect;
