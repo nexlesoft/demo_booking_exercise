@@ -57,7 +57,7 @@
     top: 0;
     left: -1px;
     &::before {
-      background: url("../../../images/evo--sprite.png") no-repeat -365px -65px;
+      background: url("../../../assets/images/evo--sprite.png") no-repeat -365px -65px;
       width: 24px;
       height: 24px;
       content: "";
@@ -68,7 +68,7 @@
       opacity: 0;
     }
     &::after {
-      background: url("../../../images/evo--sprite.png") no-repeat -365px -91px;
+      background: url("../../../assets/images/evo--sprite.png") no-repeat -365px -91px;
       width: 24px;
       height: 24px;
       content: "";
@@ -87,7 +87,7 @@
     top: 0;
     right: -1px;
     &::before {
-      background: url("../../../images/evo--sprite.png") no-repeat -365px -143px;
+      background: url("../../../assets/images/evo--sprite.png") no-repeat -365px -143px;
       width: 24px;
       height: 24px;
       content: "";
@@ -97,7 +97,7 @@
       right: 0;
     }
     &::after {
-      background: url("../../../images/evo--sprite.png") no-repeat -365px -195px;
+      background: url("../../../assets/images/evo--sprite.png") no-repeat -365px -195px;
       width: 24px;
       height: 24px;
       content: "";

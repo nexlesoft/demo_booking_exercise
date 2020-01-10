@@ -49,7 +49,7 @@ const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverla
         <Nav variant="pills">
           <Nav.Item>
             <Nav.Link eventKey="flight">
-              <img src={require("../../images/ic-flight.png")} alt="flight" />
+              <img src={require("../../assets/images/ic-flight.png")} alt="flight" />
               <span>
                 <FormattedMessage id="home.flight" />
               </span>
@@ -58,7 +58,7 @@ const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverla
           <Nav.Item>
             <Nav.Link>
               <img
-                src={require("../../images/ic-stopover.png")}
+                src={require("../../assets/images/ic-stopover.png")}
                 alt="Stopover"
               />
               <span>
@@ -68,7 +68,7 @@ const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverla
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
-              <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
+              <img src={require("../../assets/images/ic-hotel.png")} alt="Hotel" />
               <span>
                 <FormattedMessage id="home.hotel" />
               </span>
@@ -76,7 +76,7 @@ const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverla
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
-              <img src={require("../../images/ic-rental.png")} alt="Rental" />
+              <img src={require("../../assets/images/ic-rental.png")} alt="Rental" />
               <span>
                 <FormattedMessage id="home.rental_car" />
               </span>
@@ -84,7 +84,7 @@ const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverla
           </Nav.Item>
           <Nav.Item>
             <Nav.Link>
-              <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
+              <img src={require("../../assets/images/ic-SWISS.png")} alt="SWISS" />
               <span>
                 <FormattedMessage id="home.swiss_choice" />
               </span>
@@ -93,7 +93,7 @@ const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverla
         </Nav>
         <Tab.Content>
           <Nav.Link eventKey="flight" className="active">
-            <img src={require("../../images/ic-flight.png")} alt="flight" />
+            <img src={require("../../assets/images/ic-flight.png")} alt="flight" />
             <span>
               <FormattedMessage id="home.flight" />
             </span>
@@ -110,28 +110,28 @@ const HomeView = ({ flightFormState, onFlightFormChange, showOverlay, hideOverla
             />
           </Tab.Pane>
           <Nav.Link>
-            <img src={require("../../images/ic-stopover.png")} alt="Stopover" />
+            <img src={require("../../assets/images/ic-stopover.png")} alt="Stopover" />
             <span>
               <FormattedMessage id="home.stopover" />
             </span>
           </Nav.Link>
           <Tab.Pane eventKey="stopover"></Tab.Pane>
           <Nav.Link>
-            <img src={require("../../images/ic-hotel.png")} alt="Hotel" />
+            <img src={require("../../assets/images/ic-hotel.png")} alt="Hotel" />
             <span>
               <FormattedMessage id="home.hotel" />
             </span>
           </Nav.Link>
           <Tab.Pane eventKey="hotel"></Tab.Pane>
           <Nav.Link>
-            <img src={require("../../images/ic-rental.png")} alt="Rental" />
+            <img src={require("../../assets/images/ic-rental.png")} alt="Rental" />
             <span>
               <FormattedMessage id="home.rental_car" />
             </span>
           </Nav.Link>
           <Tab.Pane eventKey="rental_car"></Tab.Pane>
           <Nav.Link>
-            <img src={require("../../images/ic-SWISS.png")} alt="SWISS" />
+            <img src={require("../../assets/images/ic-SWISS.png")} alt="SWISS" />
             <span>
               <FormattedMessage id="home.swiss_choice" />
             </span>

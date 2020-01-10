@@ -19,7 +19,7 @@ import { FlightType } from "../../constants/common";
 import "./FlightForm.scss";
 
 
-const flightIcon = require("../../images/flight.png");
+const flightIcon = require("../../assets/images/flight.png");
 
 const ANIMATION_FOR_LABEL = "lbl-animated";
 const START_DATE_ID = "startId";

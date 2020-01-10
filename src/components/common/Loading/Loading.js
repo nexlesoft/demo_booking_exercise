@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import images from "../../../images";
+import images from "../../../assets/images";
 import "./Loading.scss";
 import cn from "classnames";
 
